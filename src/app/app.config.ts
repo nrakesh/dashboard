@@ -11,7 +11,8 @@ import {
   Shield, BarChart3, History, Download, Menu, X,
   AlertTriangle, Activity,
   Clock,Search, ChevronUp, ChevronDown,
-  Calendar, Key, Hash, FileText
+  Calendar, Key, Hash, FileText,
+  MoreVertical, HelpCircle, Settings, Users, Database
 } from 'lucide-angular';
 
 
@@ -26,7 +27,8 @@ export const appConfig: ApplicationConfig = {
       Shield, BarChart3, History, Download, Menu, X,
       AlertTriangle, Activity,
       Clock,Search, ChevronUp, ChevronDown,
-      Calendar, Key, Hash, FileText
+      Calendar, Key, Hash, FileText,
+      MoreVertical, HelpCircle, Settings, Users, Database
     }))
 
   ]

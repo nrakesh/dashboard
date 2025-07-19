@@ -6,31 +6,115 @@
         <h1 class="ml-3 text-2xl font-bold text-gray-900">Certify</h1>
       </div>
 
-      <nav class="hidden md:flex space-x-1">
-        @for (item of navigation; track item.id) {
-          <a
-            [routerLink]="item.link"
-            routerLinkActive="bg-blue-100 text-blue-700"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-          >
-            <lucide-icon [name]="item.icon" class="h-4 w-4 mr-2"></lucide-icon>
-            {{ item.name }}
-          </a>
-        }
-      </nav>
-
-      <div class="md:hidden">
-        <button
-          (click)="toggleMobileMenu()"
-          class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-        >
-          @if (isMobileMenuOpen) {
-            <lucide-icon name="x" class="h-6 w-6"></lucide-icon>
-          } @else {
-            <lucide-icon name="menu" class="h-6 w-6"></lucide-icon>
+      <div class="flex items-center space-x-4">
+        <nav class="hidden md:flex space-x-8">
+          @for (item of navigation; track item.id) {
+            <button
+              (click)="changeTab(item.id)"
+              class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              [ngClass]="{
+                'bg-blue-100 text-blue-700': activeTab === item.id,
+                'text-gray-600 hover:text-gray-900 hover:bg-gray-100': activeTab !== item.id
+              }"
+            >
+              <lucide-icon [name]="item.icon" class="h-4 w-4 mr-2"></lucide-icon>
+              {{item.name}}
+            </button>
           }
-        </button>
+        </nav>
+
+        <div class="relative">
+          <button
+            (click)="toggleHamburgerMenu()"
+            class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+          >
+            <lucide-icon name="more-vertical" class="h-5 w-5"></lucide-icon>
+          </button>
+
+          @if (isHamburgerMenuOpen) {
+            <div class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+              <button
+                (click)="handleMenuItemClick('support')"
+                class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+              >
+                <lucide-icon name="help-circle" class="h-4 w-4 mr-3"></lucide-icon>
+                Get Support
+              </button>
+
+              <button
+                (click)="handleMenuItemClick('api-reference')"
+                class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+              >
+                <lucide-icon name="file-text" class="h-4 w-4 mr-3"></lucide-icon>
+                API Reference
+              </button>
+
+              <div class="border-t border-gray-100 my-1"></div>
+
+              <div class="relative">
+                <button
+                  (click)="toggleAdminSubmenu()"
+                  class="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  <div class="flex items-center">
+                    <lucide-icon name="settings" class="h-4 w-4 mr-3"></lucide-icon>
+                    Admin Tools
+                  </div>
+                  <svg
+                    class="h-4 w-4 transition-transform"
+                    [ngClass]="{ 'rotate-90': isAdminSubmenuOpen }"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                @if (isAdminSubmenuOpen) {
+                  <div class="absolute left-full top-0 ml-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1">
+                    <button
+                      (click)="handleMenuItemClick('user-management')"
+                      class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                    >
+                      <lucide-icon name="users" class="h-4 w-4 mr-3"></lucide-icon>
+                      User Management
+                    </button>
+
+                    <button
+                      (click)="handleMenuItemClick('system-config')"
+                      class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                    >
+                      <lucide-icon name="settings" class="h-4 w-4 mr-3"></lucide-icon>
+                      System Configuration
+                    </button>
+
+                    <button
+                      (click)="handleMenuItemClick('database-tools')"
+                      class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                    >
+                      <lucide-icon name="database" class="h-4 w-4 mr-3"></lucide-icon>
+                      Database Tools
+                    </button>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="md:hidden">
+          <button
+            (click)="toggleMobileMenu()"
+            class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+          >
+            @if (!isMobileMenuOpen) {
+              <lucide-icon name="menu" class="h-6 w-6"></lucide-icon>
+            } @else {
+              <lucide-icon name="x" class="h-6 w-6"></lucide-icon>
+            }
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -39,18 +123,26 @@
     <div class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
         @for (item of navigation; track item.id) {
-          <a
-            [routerLink]="item.link"
-            routerLinkActive="bg-blue-100 text-blue-700"
-            [routerLinkActiveOptions]="{ exact: true }"
-            (click)="closeMobileMenu()"
-            class="flex items-center w-full px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+          <button
+            (click)="changeTab(item.id)"
+            class="flex items-center w-full px-3 py-2 rounded-md text-base font-medium transition-colors"
+            [ngClass]="{
+              'bg-blue-100 text-blue-700': activeTab === item.id,
+              'text-gray-600 hover:text-gray-900 hover:bg-gray-100': activeTab !== item.id
+            }"
           >
             <lucide-icon [name]="item.icon" class="h-5 w-5 mr-3"></lucide-icon>
-            {{ item.name }}
-          </a>
+            {{item.name}}
+          </button>
         }
       </div>
     </div>
+  }
+
+  @if (isHamburgerMenuOpen || isAdminSubmenuOpen) {
+    <div
+      class="fixed inset-0 z-40"
+      (click)="isHamburgerMenuOpen = false; isAdminSubmenuOpen = false;"
+    ></div>
   }
 </header>

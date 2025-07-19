@@ -1,41 +1,53 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { LucideAngularModule } from 'lucide-angular';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {LucideAngularModule} from 'lucide-angular';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    RouterLinkActive,
-    LucideAngularModule
-  ],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  isMobileMenuOpen = false;
+  @Input() activeTab!: string;
+  @Output() tabChange = new EventEmitter<string>();
 
-  // We use strings for routerLink and icon names
+  isMobileMenuOpen = false;
+  isHamburgerMenuOpen = false;
+  isAdminSubmenuOpen = false;
+
   navigation = [
-    { id: 'dashboard', name: 'Dashboard', link: '/dashboard', icon: 'bar-chart-3' },
-    { id: 'certificates', name: 'Certificates', link: '/certificates', icon: 'shield' },
-    { id: 'tracking', name: 'Tracking', link: '/tracking', icon: 'history' }, // Note: You'll need to create this page later
-    { id: 'download', name: 'Download', link: '/download', icon: 'download' },
+    { id: 'certificates', name: 'Certificates', icon: 'shield' },
+    { id: 'tracking', name: 'Tracking', icon: 'history' },
+    { id: 'dashboard', name: 'Dashboard', icon: 'bar-chart-3' },
+    { id: 'download', name: 'Download', icon: 'download' },
   ];
 
   ngOnInit(): void {
-    console.log('Header component is initializing...');
-    console.log('Navigation Data:', this.navigation);
+    console.log('Header Component is initializing...');
+  }
+
+  handleMenuItemClick(action: string): void {
+    console.log(`Menu action: ${action}`);
+    this.isHamburgerMenuOpen = false;
+    this.isAdminSubmenuOpen = false;
   }
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
-  closeMobileMenu(): void {
+  toggleHamburgerMenu(): void {
+    this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+  }
+
+  toggleAdminSubmenu(): void {
+    this.isAdminSubmenuOpen = !this.isAdminSubmenuOpen;
+  }
+
+  changeTab(tab: string): void {
+    console.log(`Tab in header ${tab}`);
+    this.tabChange.emit(tab);
     this.isMobileMenuOpen = false;
   }
 }

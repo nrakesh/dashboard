@@ -1,5 +1,3 @@
-<app-header></app-header>
-
-<main>
+<app-layout [activeTab]="activeTab()" (tabChange)="onTabChange($event)">
   <router-outlet></router-outlet>
-</main>
+</app-layout>
