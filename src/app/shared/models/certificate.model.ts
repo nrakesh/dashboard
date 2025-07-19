@@ -1,36 +1,46 @@
 export interface Certificate {
   id: string;
-  serialNumber: string;
-  subject: string;
+  commonName: string;
   issuer: string;
-  validFrom: Date;
-  validTo: Date;
+  serialNumber: string;
+  notBefore: string;
+  notAfter: string;
   fingerprint: string;
-  keyUsage: string[];
-  publicKeyAlgorithm: string;
-  signatureAlgorithm: string;
+  algorithm: string;
+  keySize: number;
   version: number;
-  status: 'active' | 'expired' | 'revoked';
+  isActive: boolean;
 }
 
-export interface TruststoreInstance {
+export interface TrackingInstance {
   id: string;
   trackingId: string;
   version: number;
-  timestamp: Date;
+  timestamp: string;
+  changesCount: number;
+  addedCount: number;
+  deletedCount: number;
   description: string;
-  certsAdded: number;
-  certsDeleted: number;
-  addedCertificates: Certificate[];
-  deletedCertificates: Certificate[];
+}
+
+export interface CertificateChange {
+  id: string;
+  certificate: Certificate;
+  action: 'added' | 'deleted';
+  timestamp: string;
 }
 
 export interface DashboardStats {
   totalCertificates: number;
   activeCertificates: number;
-  expiredCertificates: number;
-  certsByIssuer: { [issuer: string]: number };
-  certsByExpiryYear: { [year: string]: number };
+  expiringSoon: number;
+  recentChanges: number;
 }
 
-export type TruststoreFormat = 'jks' | 'pkcs12' | 'pem';
+export type DownloadFormat = 'jks' | 'pkcs12' | 'pem';
+
+export interface ChartData {
+  label: string;
+  value: number;
+  color: string;
+}

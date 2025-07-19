@@ -1,0 +1,126 @@
+import {Certificate, DashboardStats, TrackingInstance} from '../models/certificate.model';
+
+export const mockCertificates: Certificate[] = [
+  {
+    id: '1',
+    commonName: 'DigiCert Global Root CA',
+    issuer: 'DigiCert Inc',
+    serialNumber: '083be056904246b1a1756ac95991c74a',
+    notBefore: '2006-11-10T00:00:00Z',
+    notAfter: '2031-11-10T00:00:00Z',
+    fingerprint: 'a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436',
+    algorithm: 'SHA256withRSA',
+    keySize: 2048,
+    version: 3,
+    isActive: true,
+  },
+  {
+    id: '2',
+    commonName: 'Let\'s Encrypt Authority X3',
+    issuer: 'Internet Security Research Group',
+    serialNumber: '0a0141420000015385736a0b85eca708',
+    notBefore: '2015-10-07T19:40:09Z',
+    notAfter: '2025-10-07T19:40:09Z',
+    fingerprint: '25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d',
+    algorithm: 'SHA256withRSA',
+    keySize: 2048,
+    version: 3,
+    isActive: true,
+  },
+  {
+    id: '3',
+    commonName: 'Amazon Root CA 1',
+    issuer: 'Amazon',
+    serialNumber: '066c9fcf99bf8c0a39e2f0788a43e696365bca',
+    notBefore: '2015-05-26T00:00:00Z',
+    notAfter: '2040-05-26T00:00:00Z',
+    fingerprint: '8ecde6884f3d87b1125ba31ac3fcb13d7016de7f57cc904fe1cb97c6ae98196e',
+    algorithm: 'SHA256withRSA',
+    keySize: 2048,
+    version: 3,
+    isActive: true,
+  },
+  {
+    id: '4',
+    commonName: 'Cloudflare Inc ECC CA-3',
+    issuer: 'Cloudflare Inc',
+    serialNumber: '0d40c6371499c05d9d8b44c16bb04fc7d7d0a0a2',
+    notBefore: '2018-08-21T17:51:56Z',
+    notAfter: '2023-08-21T17:51:56Z',
+    fingerprint: '7c6c9c4f5b8b8e6c2a1f8d5c3b9a8e6d4c2f9b8a7e6d5c4b3a2f1e9d8c7b6a5',
+    algorithm: 'SHA384withECDSA',
+    keySize: 384,
+    version: 3,
+    isActive: false,
+  },
+  {
+    id: '5',
+    commonName: 'GlobalSign Root CA',
+    issuer: 'GlobalSign nv-sa',
+    serialNumber: '040000000001154b5ac394',
+    notBefore: '1998-09-01T12:00:00Z',
+    notAfter: '2028-01-28T12:00:00Z',
+    fingerprint: 'eb04cf5eb1f39afa762f2bb120f296cba520c1b97db1589565b81cb9a17b7244',
+    algorithm: 'SHA1withRSA',
+    keySize: 2048,
+    version: 3,
+    isActive: true,
+  },
+];
+
+export const mockTrackingInstances: TrackingInstance[] = [
+  {
+    id: '1',
+    trackingId: 'TRK-2024-001',
+    version: 15,
+    timestamp: '2024-01-15T10:30:00Z',
+    changesCount: 3,
+    addedCount: 2,
+    deletedCount: 1,
+    description: 'Monthly truststore update - Added new CAs, removed expired certificates',
+  },
+  {
+    id: '2',
+    trackingId: 'TRK-2024-002',
+    version: 14,
+    timestamp: '2023-12-15T09:15:00Z',
+    changesCount: 5,
+    addedCount: 3,
+    deletedCount: 2,
+    description: 'Security update - Added new regional CAs, deprecated old algorithms',
+  },
+  {
+    id: '3',
+    trackingId: 'TRK-2024-003',
+    version: 13,
+    timestamp: '2023-11-20T14:45:00Z',
+    changesCount: 2,
+    addedCount: 1,
+    deletedCount: 1,
+    description: 'Emergency update - Revoked compromised certificate',
+  },
+];
+
+export const mockDashboardStats: DashboardStats = {
+  totalCertificates: 127,
+  activeCertificates: 118,
+  expiringSoon: 12,
+  recentChanges: 8,
+};
+
+export const mockIssuerData = [
+  { label: 'DigiCert Inc', value: 35, color: '#2563eb' },
+  { label: 'Let\'s Encrypt', value: 28, color: '#059669' },
+  { label: 'Amazon', value: 22, color: '#7c3aed' },
+  { label: 'GlobalSign', value: 18, color: '#dc2626' },
+  { label: 'Cloudflare', value: 15, color: '#ea580c' },
+  { label: 'Others', value: 9, color: '#6b7280' },
+];
+
+export const mockExpiryData = [
+  { label: '2024', value: 8, color: '#dc2626' },
+  { label: '2025', value: 15, color: '#ea580c' },
+  { label: '2026-2030', value: 45, color: '#eab308' },
+  { label: '2031-2035', value: 32, color: '#059669' },
+  { label: '2036+', value: 27, color: '#2563eb' },
+];

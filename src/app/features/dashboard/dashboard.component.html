@@ -1,0 +1,116 @@
+<div class="space-y-6 p-4 md:p-6 lg:p-8">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+    <p class="mt-1 text-gray-600">
+      Overview of your certificate truststore and recent activity.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <app-stats-card
+      title="Total Certificates"
+      [value]="stats.totalCertificates"
+      change="+3 this month"
+      changeType="positive"
+      iconName="shield"
+      iconColor="text-blue-600"
+    ></app-stats-card>
+    <app-stats-card
+      title="Active Certificates"
+      [value]="stats.activeCertificates"
+      change="+2 this month"
+      changeType="positive"
+      iconName="shield"
+      iconColor="text-green-600"
+    ></app-stats-card>
+    <app-stats-card
+      title="Expiring Soon"
+      [value]="stats.expiringSoon"
+      change="3 this quarter"
+      changeType="negative"
+      iconName="alert-triangle"
+      iconColor="text-yellow-600"
+    ></app-stats-card>
+    <app-stats-card
+      title="Recent Changes"
+      [value]="stats.recentChanges"
+      change="Last 30 days"
+      changeType="neutral"
+      iconName="activity"
+      iconColor="text-purple-600"
+    ></app-stats-card>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <app-pie-chart
+      [data]="issuerData"
+      title="Certificates by Issuer"
+      [size]="300"
+    ></app-pie-chart>
+    <app-pie-chart
+      [data]="expiryData"
+      title="Certificates by Expiry Year"
+      [size]="300"
+    ></app-pie-chart>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+    <div class="px-6 py-4 border-b border-gray-200">
+      <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
+    </div>
+    <div class="p-6">
+      <div class="space-y-4">
+        <div class="flex items-center space-x-4">
+          <div class="flex-shrink-0">
+            <div
+              class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
+            >
+              <lucide-icon name="shield" class="h-4 w-4 text-green-600"></lucide-icon>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-900">
+              Added new certificate:
+              <span class="font-medium"
+              >Sectigo RSA Domain Validation Secure Server CA</span
+              >
+            </p>
+            <p class="text-sm text-gray-500">2 hours ago</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="flex-shrink-0">
+            <div
+              class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center"
+            >
+              <lucide-icon name="clock" class="h-4 w-4 text-yellow-600"></lucide-icon>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-900">
+              Certificate expiring soon:
+              <span class="font-medium">Let's Encrypt Authority X3</span>
+            </p>
+            <p class="text-sm text-gray-500">6 hours ago</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="flex-shrink-0">
+            <div
+              class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+            >
+              <lucide-icon name="alert-triangle" class="h-4 w-4 text-red-600"></lucide-icon>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-900">
+              Removed expired certificate:
+              <span class="font-medium">GeoTrust Global CA</span>
+            </p>
+            <p class="text-sm text-gray-500">1 day ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
