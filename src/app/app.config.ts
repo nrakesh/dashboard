@@ -12,7 +12,9 @@ import {
   AlertTriangle, Activity,
   Clock,Search, ChevronUp, ChevronDown,
   Calendar, Key, Hash, FileText,
-  MoreVertical, HelpCircle, Settings, Users, Database
+  MoreVertical, HelpCircle, Settings, Users, Database,
+  Package,Lock
+
 } from 'lucide-angular';
 
 
@@ -28,7 +30,8 @@ export const appConfig: ApplicationConfig = {
       AlertTriangle, Activity,
       Clock,Search, ChevronUp, ChevronDown,
       Calendar, Key, Hash, FileText,
-      MoreVertical, HelpCircle, Settings, Users, Database
+      MoreVertical, HelpCircle, Settings, Users, Database,
+      Package,Lock
     }))
 
   ]

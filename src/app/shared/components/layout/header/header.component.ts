@@ -17,9 +17,9 @@ export class HeaderComponent {
   isAdminSubmenuOpen = false;
 
   navigation = [
+    { id: 'dashboard', name: 'Dashboard', icon: 'bar-chart-3' },
     { id: 'certificates', name: 'Certificates', icon: 'shield' },
     { id: 'tracking', name: 'Tracking', icon: 'history' },
-    { id: 'dashboard', name: 'Dashboard', icon: 'bar-chart-3' },
     { id: 'download', name: 'Download', icon: 'download' },
   ];
 
