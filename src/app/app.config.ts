@@ -8,15 +8,10 @@ import { provideRouter } from '@angular/router';
 // 1. Import the module and the icons
 import {
   LucideAngularModule,
-  Shield,
-  BarChart3,
-  History,
-  Download,
-  Menu,
-  X,
-  AlertTriangle,
-  Activity,
-  Clock
+  Shield, BarChart3, History, Download, Menu, X,
+  AlertTriangle, Activity,
+  Clock,Search, ChevronUp, ChevronDown,
+  Calendar, Key, Hash, FileText
 } from 'lucide-angular';
 
 
@@ -29,9 +24,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(LucideAngularModule.pick({
       Shield, BarChart3, History, Download, Menu, X,
-      AlertTriangle,
-      Activity,
-      Clock
+      AlertTriangle, Activity,
+      Clock,Search, ChevronUp, ChevronDown,
+      Calendar, Key, Hash, FileText
     }))
 
   ]

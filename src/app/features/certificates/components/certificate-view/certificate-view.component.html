@@ -1,0 +1,21 @@
+<div class="space-y-6 p-4 md:p-6 lg:p-8">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-800">Certificate Management</h1>
+    <p class="mt-1 text-gray-600">
+      Browse and manage trusted root CA certificates in your truststore.
+    </p>
+    <p></p>
+  </div>
+  <div class="gap-6">
+    <app-certificate-list
+      [certificates]="certificates"
+      (certificateClick)="onCertificateClick($event)">
+    </app-certificate-list>
+  </div>
+
+    <app-certificate-details
+      [certificate]="selectedCertificate"
+      (close)="onCloseDetails()">
+    </app-certificate-details>
+</div>
+
