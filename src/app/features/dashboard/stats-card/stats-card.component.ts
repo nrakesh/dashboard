@@ -36,7 +36,7 @@ export class StatsCardComponent implements  OnInit {
   }
 
   public get changeColor(): string {
-    console.log("Called change color")
+    this.logger.debug("Called change color")
     switch (this.changeType) {
       case 'positive':
         return 'text-green-600';

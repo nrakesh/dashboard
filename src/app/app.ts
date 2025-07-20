@@ -3,6 +3,7 @@ import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {LayoutComponent} from './shared/components/layout/layout.component';
 import {filter, map, Subscription} from 'rxjs';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class App implements OnInit, OnDestroy {
   // Inject the Router service.
   private router = inject(Router);
   private routerSubscription!: Subscription;
+  logger = inject(NGXLogger)
 
   ngOnInit(): void {
     // Subscribe to router events to keep the active tab in sync with the URL
@@ -29,15 +31,15 @@ export class App implements OnInit, OnDestroy {
     ).subscribe(path => {
       // 3. Update the signal with the current path
       this.activeTab.set(path);
-      console.log('Route changed, active tab is now:', path);
+      this.logger.log('Route changed, active tab is now:', path);
     });
   }
 
   // Method to handle the 'tabChange' event from the layout component.
   onTabChange(tab: string): void {
-    console.log('App Component received tab:', tab);
+    this.logger.debug('App Component received tab:', tab);
     this.activeTab.set(tab);
-    console.log('App Component activeTab is now:', this.activeTab());
+    this.logger.debug('App Component activeTab is now:', this.activeTab());
     // Navigate to the new route that corresponds to the selected tab.
     this.router.navigate([tab]);
 

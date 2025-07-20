@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit {
   constructor() {}
 
   onTabChange(tab: string): void {
-    console.log('Layout Component received tab from header:', tab);
+    this.logger.debug('Layout Component received tab from header:', tab);
     this.tabChange.emit(tab);
   }
   ngOnInit(): void {

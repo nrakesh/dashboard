@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LucideAngularModule} from 'lucide-angular';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,14 @@ import {LucideAngularModule} from 'lucide-angular';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements  OnInit {
   @Input() activeTab!: string;
   @Output() tabChange = new EventEmitter<string>();
 
   isMobileMenuOpen = false;
   isHamburgerMenuOpen = false;
   isAdminSubmenuOpen = false;
+  logger = inject(NGXLogger)
 
   navigation = [
     { id: 'dashboard', name: 'Dashboard', icon: 'bar-chart-3' },
@@ -24,11 +26,11 @@ export class HeaderComponent {
   ];
 
   ngOnInit(): void {
-    console.log('Header Component is initializing...');
+    this.logger.debug('Header Component is initializing...');
   }
 
   handleMenuItemClick(action: string): void {
-    console.log(`Menu action: ${action}`);
+    this.logger.debug(`Menu action: ${action}`);
     this.isHamburgerMenuOpen = false;
     this.isAdminSubmenuOpen = false;
   }
@@ -46,7 +48,7 @@ export class HeaderComponent {
   }
 
   changeTab(tab: string): void {
-    console.log(`Tab in header ${tab}`);
+    this.logger.debug(`Tab in header ${tab}`);
     this.tabChange.emit(tab);
     this.isMobileMenuOpen = false;
   }
