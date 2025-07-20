@@ -8,6 +8,7 @@ import {mockDashboardStats, mockExpiryData, mockIssuerData} from '../../shared/d
 import {TRUSTSTORE_SERVICE_TOKEN} from '../../shared/services/service-factory';
 import {TruststoreServiceInterface} from '../../shared/services/trustsore-service-interface';
 import {NGXLogger} from 'ngx-logger';
+import {TriggerTestErrorComponent} from '../../shared/components/trigger-test-error/trigger-test-error.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ import {NGXLogger} from 'ngx-logger';
     CommonModule,
     PieChartComponent,
     StatsCardComponent, // This import now correctly points to the child component
-    LucideAngularModule
+    LucideAngularModule,
+    TriggerTestErrorComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],

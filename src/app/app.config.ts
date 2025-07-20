@@ -1,5 +1,5 @@
 import {
-  ApplicationConfig,
+  ApplicationConfig, ErrorHandler,
   importProvidersFrom,
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection
@@ -20,6 +20,9 @@ import {
 import { routes } from './app.routes';
 import {getTruststoreServiceFactory, TRUSTSTORE_SERVICE_TOKEN} from './shared/services/service-factory';
 import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
+import {GlobalErrorHandler} from './shared/services/global-error-handler.service';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {httpErrorInterceptor} from './shared/interceptors/http-error.interceptor';
 
 const appIcons = {
   Shield, BarChart3, History, Download, Menu, X,
@@ -35,6 +38,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(withInterceptors([httpErrorInterceptor])),
     importProvidersFrom(LucideAngularModule.pick(appIcons)),
     {
       provide: TRUSTSTORE_SERVICE_TOKEN,
@@ -44,6 +48,7 @@ export const appConfig: ApplicationConfig = {
       LoggerModule.forRoot({
         level: NgxLoggerLevel.DEBUG,
       })
-    )
+    ),
+    { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ]
 };
