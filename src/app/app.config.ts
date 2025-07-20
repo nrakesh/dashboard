@@ -18,6 +18,7 @@ import {
 
 
 import { routes } from './app.routes';
+import {getTruststoreServiceFactory, TRUSTSTORE_SERVICE_TOKEN} from './shared/services/service-factory';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,7 +32,11 @@ export const appConfig: ApplicationConfig = {
       Calendar, Key, Hash, FileText,
       MoreVertical, HelpCircle, Settings, Users, Database,
       Package,Lock
-    }))
+    })),
+    {
+      provide: TRUSTSTORE_SERVICE_TOKEN,
+      useFactory: () => getTruststoreServiceFactory(false),
+    }
 
   ]
 };
