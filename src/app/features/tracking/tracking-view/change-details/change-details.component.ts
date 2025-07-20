@@ -1,7 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, Inject, inject} from '@angular/core';
 import {LucideAngularModule, Minus, Plus, Shield, X} from 'lucide-angular';
 import {DatePipe, NgClass} from '@angular/common';
 import {TrackingInstance} from '../../../../shared/models/certificate.model';
+import {TRUSTSTORE_SERVICE_TOKEN} from '../../../../shared/services/service-factory';
+import {TruststoreServiceInterface} from '../../../../shared/services/trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 interface CertificateChange {
   id: string;
@@ -75,6 +78,11 @@ export class ChangeDetailsComponent {
       timestamp: '2024-01-15T10:30:00Z',
     },
   ];
+
+  private logger = inject(NGXLogger);
+  private truststoreService: TruststoreServiceInterface = inject(TRUSTSTORE_SERVICE_TOKEN);
+
+  constructor() {}
 
   closeComponent() {
     this.onClose.emit();

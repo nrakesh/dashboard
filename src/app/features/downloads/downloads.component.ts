@@ -1,7 +1,10 @@
-import { Component, signal } from '@angular/core';
+import {Component, inject, Inject, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LucideAngularModule} from 'lucide-angular';
 import { HttpClientModule } from '@angular/common/http';
+import {TRUSTSTORE_SERVICE_TOKEN} from "../../shared/services/service-factory";
+import {TruststoreServiceInterface} from "../../shared/services/trustsore-service-interface";
+import {NGXLogger} from "ngx-logger";
 
 // Define the type for download formats, similar to the original shared type
 type DownloadFormat = 'jks' | 'pkcs12' | 'pem';
@@ -50,6 +53,11 @@ export class DownloadsComponent {
       borderColor: 'border-green-200',
     },
   ];
+
+  private logger = inject(NGXLogger);
+  private truststoreService: TruststoreServiceInterface = inject(TRUSTSTORE_SERVICE_TOKEN);
+
+  constructor() {}
 
   setSelectedFormat(format: DownloadFormat) {
     this.selectedFormat.set(format);

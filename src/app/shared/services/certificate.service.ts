@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import {Certificate, DashboardStats, DownloadFormat, TrackingInstance} from '../models/certificate.model';
+import {inject, Inject, Injectable} from '@angular/core';
+import {NGXLogger} from 'ngx-logger';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CertificateService {
+  private logger = inject(NGXLogger);
+
+  constructor() {}
+
   /*
   private mockCertificates: Certificate[] = [
     {

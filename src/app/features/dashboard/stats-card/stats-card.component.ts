@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import {Component, inject, Inject, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgClass } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import {NGXLogger} from 'ngx-logger';
+import {TruststoreServiceInterface} from '../../../shared/services/trustsore-service-interface';
+import {TRUSTSTORE_SERVICE_TOKEN} from '../../../shared/services/service-factory';
 
 @Component({
   selector: 'app-stats-card',
@@ -10,7 +13,7 @@ import { LucideAngularModule } from 'lucide-angular';
   templateUrl: './stats-card.component.html',
   styleUrl: './stats-card.component.scss',
 })
-export class StatsCardComponent {
+export class StatsCardComponent implements  OnInit {
   @Input() title: string = '';
   @Input() value: string | number = '';
   @Input() change?: string;
@@ -18,14 +21,20 @@ export class StatsCardComponent {
   @Input() iconName: string = ''; // We pass the icon name as a string
   @Input() iconColor: string = 'text-gray-600';
 
+  private logger = inject(NGXLogger);
+  private truststoreService: TruststoreServiceInterface = inject(TRUSTSTORE_SERVICE_TOKEN);
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    console.log('StatsCardComponent  is initializing...');
-    console.log('change:', this.change);
-    console.log('changeType:', this.changeType);
-    console.log('value:', this.value);
-    console.log('title:', this.title);
+    this.logger.debug('StatsCardComponent  is initializing...');
+    this.logger.debug('change:', this.change);
+    this.logger.debug('changeType:', this.changeType);
+    this.logger.debug('value:', this.value);
+    this.logger.debug('title:', this.title);
   }
+
   public get changeColor(): string {
     console.log("Called change color")
     switch (this.changeType) {

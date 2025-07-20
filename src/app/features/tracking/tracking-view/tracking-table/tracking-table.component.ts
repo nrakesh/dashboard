@@ -1,8 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, Inject, inject} from '@angular/core';
 import {TrackingInstance} from '../../../../shared/models/certificate.model';
 import {CommonModule} from '@angular/common';
 import {LucideAngularModule} from 'lucide-angular';
 import {FormsModule} from '@angular/forms';
+import {TRUSTSTORE_SERVICE_TOKEN} from '../../../../shared/services/service-factory';
+import {TruststoreServiceInterface} from '../../../../shared/services/trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 type SortField = 'timestamp' | 'version' | 'changesCount';
 type SortDirection = 'asc' | 'desc';
@@ -24,6 +27,11 @@ export class TrackingTableComponent {
   searchTerm: string = '';
   sortField: SortField = 'timestamp';
   sortDirection: SortDirection = 'desc';
+
+  private logger = inject(NGXLogger);
+  private truststoreService: TruststoreServiceInterface = inject(TRUSTSTORE_SERVICE_TOKEN);
+
+  constructor() {}
 
   // Method to get the correct icon name for a given field
   // This is a much cleaner way to handle the logic.

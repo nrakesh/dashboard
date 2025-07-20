@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {TruststoreServiceInterface} from '../trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class TrustStoreService implements TruststoreServiceInterface {
+  private logger = inject(NGXLogger);
+
+  constructor() {}
 
   ping(): string {
-      throw new Error('Method not implemented.');
+    this.logger.debug('ping');
+    return 'ping';
   }
 
 }

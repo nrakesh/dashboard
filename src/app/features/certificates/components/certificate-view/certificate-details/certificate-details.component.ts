@@ -1,8 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, Inject, inject} from '@angular/core';
 import {Certificate} from '../../../../../shared/models/certificate.model';
 import {CommonModule} from '@angular/common';
 import {LucideAngularModule} from 'lucide-angular';
 import {FormsModule} from '@angular/forms';
+import {NGXLogger} from 'ngx-logger';
+
 
 @Component({
   selector: 'app-certificate-details',
@@ -14,6 +16,8 @@ export class CertificateDetailsComponent {
   @Input() certificate: Certificate | null = null;
   @Output() onClose = new EventEmitter<void>();
 
+  private logger = inject(NGXLogger);
+
   constructor() {}
 
   isExpiringSoon(notAfter: string): boolean {
@@ -24,7 +28,7 @@ export class CertificateDetailsComponent {
   }
 
   closeComponent() {
-    console.log('closing certificate');
+    this.logger.log('closing certificate');
     this.onClose.emit();
   }
 }

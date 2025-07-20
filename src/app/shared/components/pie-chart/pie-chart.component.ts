@@ -1,6 +1,9 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, inject, Inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ChartData} from '../../models/certificate.model';
+import {TRUSTSTORE_SERVICE_TOKEN} from '../../services/service-factory';
+import {TruststoreServiceInterface} from '../../services/trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 export interface PieSegment extends ChartData {
   pathData: string;
@@ -20,6 +23,9 @@ export class PieChartComponent implements OnChanges {
   @Input() title?: string;
 
   public segments: PieSegment[] = [];
+  private logger = inject(NGXLogger);
+
+  constructor(){}
 
   ngOnChanges(changes: SimpleChanges): void {
     // Recalculate the chart whenever the input data changes

@@ -1,9 +1,12 @@
 
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {mockCertificates} from '../../../../shared/data/mockData';
 import {Certificate} from '../../../../shared/models/certificate.model';
 import {CertificateListComponent} from './certificate-list/certificate-list.component';
 import {CertificateDetailsComponent} from './certificate-details/certificate-details.component';
+import {TRUSTSTORE_SERVICE_TOKEN} from '../../../../shared/services/service-factory';
+import {TruststoreServiceInterface} from '../../../../shared/services/trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 
 @Component({
@@ -19,7 +22,10 @@ export class CertificatesViewComponent implements OnInit {
   certificates: Certificate[] = [];
   selectedCertificate: Certificate | null = null;
 
-  constructor() { }
+  constructor(
+    @Inject(TRUSTSTORE_SERVICE_TOKEN) private truststoreService:TruststoreServiceInterface,
+    private logger: NGXLogger
+  ) {}
 
   ngOnInit(): void {
     this.certificates = mockCertificates;
@@ -30,7 +36,7 @@ export class CertificatesViewComponent implements OnInit {
   }
 
   onCloseDetails(): void {
-    console.log('closing certificate details');
+    this.logger.debug('closing certificate details');
     this.selectedCertificate = null;
   }
 }
