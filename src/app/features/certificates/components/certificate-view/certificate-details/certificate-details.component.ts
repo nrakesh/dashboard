@@ -22,4 +22,9 @@ export class CertificateDetailsComponent {
     threeMonthsFromNow.setMonth(threeMonthsFromNow.getMonth() + 3);
     return expiryDate < threeMonthsFromNow;
   }
+
+  closeComponent() {
+    console.log('closing certificate');
+    this.onClose.emit();
+  }
 }

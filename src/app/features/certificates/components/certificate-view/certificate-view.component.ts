@@ -30,6 +30,7 @@ export class CertificatesViewComponent implements OnInit {
   }
 
   onCloseDetails(): void {
+    console.log('closing certificate details');
     this.selectedCertificate = null;
   }
 }

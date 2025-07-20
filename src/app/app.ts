@@ -1,7 +1,8 @@
 // app.ts
-import { Component, signal } from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {LayoutComponent} from './shared/components/layout/layout.component';
+import {filter, map, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,27 @@ import {LayoutComponent} from './shared/components/layout/layout.component';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit, OnDestroy {
+
   // Use a writable signal to hold the active tab state.
   readonly activeTab = signal('dashboard');
   // Inject the Router service.
-  constructor(private router: Router) { }
+  private router = inject(Router);
+  private routerSubscription!: Subscription;
 
+  ngOnInit(): void {
+    // Subscribe to router events to keep the active tab in sync with the URL
+    this.routerSubscription = this.router.events.pipe(
+      // 1. Filter for the NavigationEnd event
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      // 2. Extract the route path (e.g., 'certificate' from '/certificate')
+      map(event => event.urlAfterRedirects.split('/')[1] || 'dashboard')
+    ).subscribe(path => {
+      // 3. Update the signal with the current path
+      this.activeTab.set(path);
+      console.log('Route changed, active tab is now:', path);
+    });
+  }
 
   // Method to handle the 'tabChange' event from the layout component.
   onTabChange(tab: string): void {
@@ -25,5 +41,11 @@ export class App {
     // Navigate to the new route that corresponds to the selected tab.
     this.router.navigate([tab]);
 
+  }
+  ngOnDestroy(): void {
+    // Clean up the subscription to prevent memory leaks
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 }

@@ -33,6 +33,7 @@ export class TrackingViewComponent {
    * Clears the selectedInstance state to close the ChangeDetails view.
    */
   onCloseDetails(): void {
+    console.log('closing tracking details');
     this.selectedInstance = null;
   }
 }

@@ -81,11 +81,6 @@ export class ChangeDetailsComponent {
   }
 
   // // To use Lucide icons in the template
-  // X = X;
-  // Plus = Plus;
-  // Minus = Minus;
-  // Shield = Shield;
-  // Calendar = Calendar;
   protected readonly Plus = Plus;
   protected readonly Minus = Minus;
   protected readonly Shield = Shield;
