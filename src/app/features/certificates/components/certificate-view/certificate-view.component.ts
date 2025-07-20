@@ -28,7 +28,7 @@ export class CertificatesViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.certificates = mockCertificates;
+    this.certificates = this.truststoreService.getCertificates();
   }
 
   onCertificateClick(certificate: Certificate): void {

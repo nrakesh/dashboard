@@ -22,10 +22,10 @@ export class TrackingViewComponent {
   selectedInstance: TrackingInstance | null = null;
 
   // The data source for the tracking table.
-  instances = mockTrackingInstances;
 
   private logger = inject(NGXLogger);
   private truststoreService: TruststoreServiceInterface = inject(TRUSTSTORE_SERVICE_TOKEN);
+  instances = this.truststoreService.getTrackingData();
 
   constructor() {}
 
