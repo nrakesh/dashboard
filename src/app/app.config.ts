@@ -20,19 +20,21 @@ import {
 import { routes } from './app.routes';
 import {getTruststoreServiceFactory, TRUSTSTORE_SERVICE_TOKEN} from './shared/services/service-factory';
 
+const appIcons = {
+  Shield, BarChart3, History, Download, Menu, X,
+  AlertTriangle, Activity,
+  Clock,Search, ChevronUp, ChevronDown,
+  Calendar, Key, Hash, FileText,
+  MoreVertical, HelpCircle, Settings, Users, Database,
+  Package,Lock
+};
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    importProvidersFrom(LucideAngularModule.pick({
-      Shield, BarChart3, History, Download, Menu, X,
-      AlertTriangle, Activity,
-      Clock,Search, ChevronUp, ChevronDown,
-      Calendar, Key, Hash, FileText,
-      MoreVertical, HelpCircle, Settings, Users, Database,
-      Package,Lock
-    })),
+    importProvidersFrom(LucideAngularModule.pick(appIcons)),
     {
       provide: TRUSTSTORE_SERVICE_TOKEN,
       useFactory: () => getTruststoreServiceFactory(false),
