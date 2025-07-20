@@ -1,0 +1,124 @@
+@if (instance) {
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between p-6 border-b border-gray-200">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900">
+            {{ instance.trackingId }} - Changes
+          </h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Version {{ instance.version }} • {{ instance.timestamp | date:'medium' }}
+          </p>
+        </div>
+        <button
+          (click)="closeComponent()"
+          class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <lucide-angular [name]="X" class="h-5 w-5 text-gray-500"></lucide-angular>
+        </button>
+      </div>
+
+      <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-2">
+              <lucide-angular [name]="Plus" class="h-4 w-4 text-green-500"></lucide-angular>
+              <span class="text-sm font-medium text-green-600">
+                {{ instance.addedCount }} Added
+              </span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <lucide-angular [name]="Minus" class="h-4 w-4 text-red-500"></lucide-angular>
+              <span class="text-sm font-medium text-red-600">
+                {{ instance.deletedCount }} Deleted
+              </span>
+            </div>
+          </div>
+          <span class="text-sm text-gray-600">
+            Total: {{ instance.changesCount }} changes
+          </span>
+        </div>
+        <p class="text-sm text-gray-700 mt-2">{{ instance.description }}</p>
+      </div>
+
+      <div class="p-6">
+        <div class="space-y-4">
+          @for (change of changes; track change.id) {
+            <div
+              [ngClass]="{
+                'bg-green-50 border-green-400': change.action === 'added',
+                'bg-red-50 border-red-400': change.action === 'deleted'
+              }"
+              class="p-4 rounded-lg border-l-4"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center space-x-3 mb-2">
+                    @if (change.action === 'added') {
+                      <lucide-angular [name]="Plus" class="h-5 w-5 text-green-500"></lucide-angular>
+                    } @else {
+                      <lucide-angular [name]="Minus" class="h-5 w-5 text-red-500"></lucide-angular>
+                    }
+                    <span
+                      [ngClass]="{
+                        'bg-green-100 text-green-800': change.action === 'added',
+                        'bg-red-100 text-red-800': change.action === 'deleted'
+                      }"
+                      class="px-2 py-1 text-xs font-medium rounded-full"
+                    >
+                      {{ change.action.charAt(0).toUpperCase() + change.action.slice(1) }}
+                    </span>
+                  </div>
+
+                  <h3 class="font-medium text-gray-900 mb-2">
+                    {{ change.certificate.commonName }}
+                  </h3>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <span class="text-gray-600">Issuer:</span>
+                      <p class="text-gray-900">{{ change.certificate.issuer }}</p>
+                    </div>
+                    <div>
+                      <span class="text-gray-600">Algorithm:</span>
+                      <p class="text-gray-900">{{ change.certificate.algorithm }}</p>
+                    </div>
+                    <div>
+                      <span class="text-gray-600">Valid Until:</span>
+                      <p class="text-gray-900">
+                        {{ change.certificate.notAfter | date:'mediumDate' }}
+                      </p>
+                    </div>
+                    <div>
+                      <span class="text-gray-600">Key Size:</span>
+                      <p class="text-gray-900">{{ change.certificate.keySize }} bits</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ml-4">
+                  <lucide-angular [name]="Shield"
+                                  [ngClass]="{
+                      'text-green-500': change.certificate.isActive,
+                      'text-gray-400': !change.certificate.isActive
+                    }"
+                                  class="h-6 w-6"
+                  ></lucide-angular>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl">
+        <button
+          (click)="closeComponent()"
+          class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+}

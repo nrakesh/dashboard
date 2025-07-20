@@ -8,7 +8,7 @@ import {
   CertificateDetailsComponent
 } from './features/certificates/components/certificate-view/certificate-details/certificate-details.component';
 import {TrackingViewComponent} from './features/tracking/tracking-view/tracking-view.component';
-import {TrackingDetailsComponent} from './features/tracking/tracking-view/tracking-details/tracking-details.component';
+import {TrackingTableComponent} from './features/tracking/tracking-view/tracking-table/tracking-table.component';
 import {DownloadsComponent} from './features/downloads/downloads.component';
 
 export const routes: Routes = [
@@ -18,6 +18,6 @@ export const routes: Routes = [
   { path: 'certificates', component: CertificatesViewComponent },
   { path: 'certificates/:id', component: CertificateDetailsComponent },
   { path: 'tracking', component: TrackingViewComponent },
-  { path: 'tracking/:id', component: TrackingDetailsComponent },
+  { path: 'tracking/:id', component: TrackingTableComponent },
   { path: 'download', component: DownloadsComponent },
 ];

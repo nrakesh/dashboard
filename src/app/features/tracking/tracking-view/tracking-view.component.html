@@ -5,11 +5,18 @@
       View the history of truststore changes including added and removed certificates.
     </p>
   </div>
-
   <div class="gap-6">
-    <app-tracking-list>list here </app-tracking-list>
-  </div>
+    <app-tracking-table
+      [instances]="instances"
+      (instanceClicked)="onInstanceClick($event)">
+    </app-tracking-table>
 
-  <app-tracking-details></app-tracking-details>
+    @if (selectedInstance) {
+      <app-change-details
+        [instance]="selectedInstance"
+        (onClose)="onCloseDetails()">
+      </app-change-details>
+    }
+    <div class="gap-6">
 </div>
 

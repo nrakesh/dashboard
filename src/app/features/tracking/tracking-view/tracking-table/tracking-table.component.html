@@ -1,0 +1,119 @@
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+  <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <h2 class="text-lg font-semibold text-gray-900">Tracking History</h2>
+
+      <div class="relative">
+        <lucide-icon name="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"></lucide-icon>
+        <input
+          type="text"
+          placeholder="Search tracking instances..."
+          [(ngModel)]="searchTerm"
+          class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Tracking ID
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+          (click)="handleSort('version')"
+        >
+          <div class="flex items-center space-x-1">
+            <span>Version</span>
+<!--            <lucide-icon [name]="getSortIconName('version')" class="h-4 w-4"></lucide-icon>-->
+          </div>
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+          (click)="handleSort('timestamp')"
+        >
+          <div class="flex items-center space-x-1">
+            <span>Date</span>
+<!--            <lucide-icon [name]="getSortIconName('timestamp')" class="h-4 w-4"></lucide-icon>-->
+          </div>
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+          (click)="handleSort('changesCount')"
+        >
+          <div class="flex items-center space-x-1">
+            <span>Changes</span>
+<!--            <lucide-icon [name]="getSortIconName('changesCount')" class="h-4 w-4"></lucide-icon>-->
+          </div>
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          Description
+        </th>
+      </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        @for (instance of filteredAndSortedInstances; track instance.id) {
+          <tr
+            (click)="onRowClick(instance)"
+            class="hover:bg-gray-50 cursor-pointer transition-colors"
+          >
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+<!--                <lucide-icon name="history" class="h-4 w-4 text-gray-400 mr-2"></lucide-icon>-->
+                <span class="text-sm font-medium text-gray-900">
+                  {{ instance.trackingId }}
+                </span>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                v{{ instance.version }}
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-600">
+                {{ instance.timestamp | date: 'medium' }}
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-1">
+                  <lucide-icon name="plus" class="h-3 w-3 text-green-500"></lucide-icon>
+                  <span class="text-sm text-green-600 font-medium">
+                    {{ instance.addedCount }}
+                  </span>
+                </div>
+                <div class="flex items-center space-x-1">
+                  <lucide-icon name="minus" class="h-3 w-3 text-red-500"></lucide-icon>
+                  <span class="text-sm text-red-600 font-medium">
+                    {{ instance.deletedCount }}
+                  </span>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-sm text-gray-600 truncate max-w-xs">
+                {{ instance.description }}
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr class="h-1">
+            <td colspan="5">
+              <div class="px-6 py-12 text-center">
+                <lucide-icon name="history" class="mx-auto h-12 w-12 text-gray-400"></lucide-icon>
+                <h3 class="mt-2 text-sm font-medium text-gray-900">No tracking instances found</h3>
+                <p class="mt-1 text-sm text-gray-500">
+                  Try adjusting your search terms.
+                </p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
