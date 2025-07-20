@@ -28,5 +28,13 @@ export interface TruststoreServiceInterface {
    */
   getCertificates(): Certificate[];
 
-  getTrackingData(): TrackingInstance[]
+  /**
+   * Retrieves a collection of all tracking data instances.
+   *
+   * This method fetches the current tracking records, with each instance
+   * typically representing a unique loader session
+   *
+   * @returns {TrackingInstance[]} An array of `TrackingInstance` objects. Returns an empty array if no tracking data is available.
+   */
+  getTrackingData(): TrackingInstance[];
 }
