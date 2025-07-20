@@ -7,6 +7,7 @@ import {ChartData, DashboardStats} from '../../shared/models/certificate.model';
 import {mockDashboardStats, mockExpiryData, mockIssuerData} from '../../shared/data/mockData';
 import {TRUSTSTORE_SERVICE_TOKEN} from '../../shared/services/service-factory';
 import {TruststoreServiceInterface} from '../../shared/services/trustsore-service-interface';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,14 +29,15 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(
-    @Inject(TRUSTSTORE_SERVICE_TOKEN) private truststoreService:TruststoreServiceInterface
+    @Inject(TRUSTSTORE_SERVICE_TOKEN) private truststoreService:TruststoreServiceInterface,
+    private logger: NGXLogger
   ) {
   }
 
   ngOnInit(): void {
-    console.log('DashboardComponent is initializing...');
-    console.log('Data is available:', this.stats);
+    this.logger.info('DashboardComponent is initializing...');
+    this.logger.debug('Data is available:', this.stats);
     let ack = this.truststoreService.ping()
-    console.log(ack);
+    this.logger.debug("ping-->" + ack);
   }
 }
