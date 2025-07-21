@@ -10,15 +10,16 @@ import {
 import {TrackingViewComponent} from './features/tracking/tracking-view/tracking-view.component';
 import {TrackingTableComponent} from './features/tracking/tracking-view/tracking-table/tracking-table.component';
 import {DownloadsComponent} from './features/downloads/downloads.component';
-import {authGuard} from './shared/guards/auth.guard';
+import {authGuard} from './shared/auth/auth.guard';
+import {LoginComponent} from './shared/login/login.component';
 
 export const routes: Routes = [
-  // This route will render DashboardComponent inside the router outlet when at the root URL
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'certificates', component: CertificatesViewComponent },
-  { path: 'certificates/:id', component: CertificateDetailsComponent },
-  { path: 'tracking', component: TrackingViewComponent },
-  { path: 'tracking/:id', component: TrackingTableComponent },
-  { path: 'download', component: DownloadsComponent , canActivate: [authGuard]},
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+  { path: 'certificates', component: CertificatesViewComponent, canActivate: [authGuard] },
+  { path: 'certificates/:id', component: CertificateDetailsComponent, canActivate: [authGuard] },
+  { path: 'tracking', component: TrackingViewComponent, canActivate: [authGuard] },
+  { path: 'tracking/:id', component: TrackingTableComponent, canActivate: [authGuard] },
+  { path: 'download', component: DownloadsComponent},
 ];
