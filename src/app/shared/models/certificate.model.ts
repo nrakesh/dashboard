@@ -10,6 +10,7 @@ export interface Certificate {
   keySize: number;
   version: number;
   isActive: boolean;
+  source: string;
 }
 
 export interface TrackingInstance {

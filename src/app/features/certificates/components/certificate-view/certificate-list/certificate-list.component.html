@@ -10,17 +10,19 @@
             type="text"
             placeholder="Search certificates..."
             [(ngModel)]="searchTerm"
+            (ngModelChange)="resetPage()"
             class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
         <select
-          [(ngModel)]="filterActive"
+          [(ngModel)]="filterSource"
+          (ngModelChange)="resetPage()"
           class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-          <option value="all">All Certificates</option>
-          <option value="active">Active Only</option>
-          <option value="inactive">Inactive Only</option>
+          @for (source of sources; track source) {
+            <option [value]="source">{{ source === 'all' ? 'All Sources' : source }}</option>
+          }
         </select>
       </div>
     </div>
@@ -30,97 +32,116 @@
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
       <tr>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-          Status
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('source')">
+          <div class="flex items-center space-x-1">
+            <span>Source</span>
+            @if (sortField === 'source') {
+              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+            }
+          </div>
         </th>
-        <th
-          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-          (click)="handleSort('commonName')"
-        >
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('commonName')">
           <div class="flex items-center space-x-1">
             <span>Common Name</span>
-            <svg *ngIf="sortField === 'commonName' && sortDirection === 'asc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-            <svg *ngIf="sortField === 'commonName' && sortDirection === 'desc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            @if (sortField === 'commonName') {
+              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+            }
           </div>
         </th>
-        <th
-          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-          (click)="handleSort('issuer')"
-        >
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('issuer')">
           <div class="flex items-center space-x-1">
             <span>Issuer</span>
-            <svg *ngIf="sortField === 'issuer' && sortDirection === 'asc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-            <svg *ngIf="sortField === 'issuer' && sortDirection === 'desc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            @if (sortField === 'issuer') {
+              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+            }
           </div>
         </th>
-        <th
-          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-          (click)="handleSort('notAfter')"
-        >
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('notAfter')">
           <div class="flex items-center space-x-1">
             <span>Expires</span>
-            <svg *ngIf="sortField === 'notAfter' && sortDirection === 'asc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-            <svg *ngIf="sortField === 'notAfter' && sortDirection === 'desc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            @if (sortField === 'notAfter') {
+              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+            }
           </div>
         </th>
-        <th
-          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
-          (click)="handleSort('algorithm')"
-        >
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('algorithm')">
           <div class="flex items-center space-x-1">
             <span>Algorithm</span>
-            <svg *ngIf="sortField === 'algorithm' && sortDirection === 'asc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-            <svg *ngIf="sortField === 'algorithm' && sortDirection === 'desc'" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            @if (sortField === 'algorithm') {
+              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+            }
           </div>
         </th>
       </tr>
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
-      <tr
-        *ngFor="let certificate of filteredAndSortedCertificates"
-        (click)="certificateClick.emit(certificate)"
-        class="hover:bg-gray-50 cursor-pointer transition-colors"
-      >
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div class="flex items-center">
-            <svg *ngIf="certificate.isActive" class="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <svg *ngIf="!certificate.isActive" class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-            <svg *ngIf="certificate.isActive && isExpiringSoon(certificate.notAfter)" class="h-4 w-4 text-yellow-500 ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          </div>
-        </td>
-        <td class="px-6 py-4">
-          <div class="text-sm font-medium text-gray-900 truncate max-w-xs">
-            {{ certificate.commonName }}
-          </div>
-        </td>
-        <td class="px-6 py-4">
-          <div class="text-sm text-gray-600 truncate max-w-xs">
-            {{ certificate.issuer }}
-          </div>
-        </td>
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div [class.text-yellow-600]="isExpiringSoon(certificate.notAfter)"
-               [class.font-medium]="isExpiringSoon(certificate.notAfter)"
-               [class.text-gray-600]="!isExpiringSoon(certificate.notAfter)"
-               class="text-sm">
-            {{ certificate.notAfter | date: 'shortDate' }}
-          </div>
-        </td>
-        <td class="px-6 py-4 whitespace-nowrap">
+        @for (certificate of paginatedCertificates; track certificate.id) {
+          <tr (click)="certificateClick.emit(certificate)" class="hover:bg-gray-50 cursor-pointer transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center space-x-3">
+                <lucide-icon [name]="getSourceInfo(certificate.source).icon" class="h-5 w-5" [ngClass]="getSourceInfo(certificate.source).colorClass"></lucide-icon>
+                <span class="text-sm text-gray-800">{{ getSourceInfo(certificate.source).name }}</span>
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-sm font-medium text-gray-900 truncate max-w-xs">{{ certificate.commonName }}</div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="text-sm text-gray-600 truncate max-w-xs">{{ certificate.issuer }}</div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div [class.text-yellow-600]="isExpiringSoon(certificate.notAfter)" [class.font-medium]="isExpiringSoon(certificate.notAfter)" [class.text-gray-600]="!isExpiringSoon(certificate.notAfter)" class="text-sm flex items-center">
+                {{ certificate.notAfter | date: 'shortDate' }}
+                @if (isExpiringSoon(certificate.notAfter)) {
+                  <lucide-icon name="alert-triangle" class="h-4 w-4 text-yellow-500 ml-2"></lucide-icon>
+                }
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
             <span class="inline-flex px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
               {{ certificate.algorithm }}
             </span>
-        </td>
-      </tr>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5">
+              <div class="px-6 py-12 text-center">
+                <lucide-icon name="search-x" class="mx-auto h-12 w-12 text-gray-400"></lucide-icon>
+                <h3 class="mt-2 text-sm font-medium text-gray-900">No Certificates Found</h3>
+                <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter terms.</p>
+              </div>
+            </td>
+          </tr>
+        }
       </tbody>
     </table>
   </div>
 
-  <div *ngIf="filteredAndSortedCertificates.length === 0" class="px-6 py-12 text-center">
-    <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-    <h3 class="mt-2 text-sm font-medium text-gray-900">No certificates found</h3>
-    <p class="mt-1 text-sm text-gray-500">
-      Try adjusting your search terms or filters.
-    </p>
-  </div>
+  @if (filteredAndSortedCertificates.length > pageSizeOptions[0]) {
+    <div class="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between">
+      <div class="flex items-center space-x-2 text-sm">
+        <label for="pageSize" class="text-gray-600">Rows per page:</label>
+        <select id="pageSize" [ngModel]="pageSize" (change)="onPageSizeChange($event)" class="px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          @for (size of pageSizeOptions; track size) {
+            <option [value]="size">{{ size }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <span class="text-sm text-gray-600">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+        <div class="flex items-center space-x-1">
+          <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+            <lucide-icon name="chevron-left" class="h-4 w-4"></lucide-icon>
+          </button>
+          <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+            <lucide-icon name="chevron-right" class="h-4 w-4"></lucide-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  }
 </div>

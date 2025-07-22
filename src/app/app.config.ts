@@ -13,7 +13,9 @@ import {
   Clock,Search, ChevronUp, ChevronDown,
   Calendar, Key, Hash, FileText,
   MoreVertical, HelpCircle, Settings, Users, Database,
-  Package,Lock,Plus,Minus
+  Package,Lock,Plus,Minus,
+  ShieldCheck,DatabaseIcon, KeyRound,Vault,ShieldQuestion,
+  ChevronLeft, ChevronRight,
 } from 'lucide-angular';
 
 
@@ -30,7 +32,9 @@ const appIcons = {
   Clock,Search, ChevronUp, ChevronDown,
   Calendar, Key, Hash, FileText,
   MoreVertical, HelpCircle, Settings, Users, Database,
-  Package,Lock,Plus,Minus
+  Package,Lock,Plus,Minus,
+  ShieldCheck,  DatabaseIcon, KeyRound,Vault,ShieldQuestion,
+  ChevronLeft, ChevronRight,
 };
 
 export const appConfig: ApplicationConfig = {
