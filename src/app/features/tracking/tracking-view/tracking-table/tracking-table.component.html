@@ -2,15 +2,27 @@
   <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
       <h2 class="text-lg font-semibold text-gray-900">Tracking History</h2>
-      <div class="relative w-1/2">
-        <lucide-icon name="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"></lucide-icon>
-        <input
-          type="text"
-          placeholder="Search tracking instances..."
-          [value]="globalFilter()"
-          (input)="globalFilter.set($any($event.target).value)"
-          class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
-        /> </div>
+      <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 sm:w-1/2">
+
+        <div class="relative flex-grow">
+          <lucide-icon name="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"></lucide-icon>
+          <input
+            type="text"
+            placeholder="Search tracking instances..."
+            [value]="globalFilter()"
+            (input)="onGlobalFilterChange($any($event.target).value)"
+            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+          /> </div>
+        <select
+          [value]="$any(table.getColumn('changeStatus')?.getFilterValue()) || 'all'"
+          (change)="onStatusFilterChange($any($event.target).value)"
+          class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+          <option value="all">All</option>
+          <option value="YES">Has Updates</option>
+          <option value="NO">No Update</option>
+        </select>
+      </div>
     </div>
   </div>
 
@@ -41,6 +53,15 @@
             @for (cell of row.getVisibleCells(); track cell.id) {
               <td class="px-6 py-4 whitespace-nowrap">
                 @switch (cell.column.id) {
+                  @case ('changeStatus') {
+                    <div class="flex justify-center">
+                      @if (cell.getValue() === 'YES') {
+                        <lucide-icon name="CheckCircle2" class="h-5 w-5 text-green-500"></lucide-icon>
+                      } @else if (cell.getValue() === 'NO') {
+                        <lucide-icon name="CircleEqual" class="h-5 w-5 text-blue-500"></lucide-icon>
+                      }
+                    </div>
+                  }
                   @case ('trackingId') {
                     <span class="text-sm font-medium text-gray-900">{{ cell.getValue() }}</span>
                   }

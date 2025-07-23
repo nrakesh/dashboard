@@ -13,7 +13,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '2',
@@ -27,7 +31,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '3',
@@ -41,7 +49,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '4',
@@ -55,7 +67,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '5',
@@ -69,7 +85,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "AWS"
+    source: "AWS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '6',
@@ -83,7 +103,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '7',
@@ -97,7 +121,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '8',
@@ -111,7 +139,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '9',
@@ -125,7 +157,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '10',
@@ -139,7 +175,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '11',
@@ -153,7 +193,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '12',
@@ -167,7 +211,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '13',
@@ -181,7 +229,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '14',
@@ -195,7 +247,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '15',
@@ -209,7 +265,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '16',
@@ -223,7 +283,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '17',
@@ -237,7 +301,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '18',
@@ -251,7 +319,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '19',
@@ -265,7 +337,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '20',
@@ -279,7 +355,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '21',
@@ -293,7 +373,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '22',
@@ -307,7 +391,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '23',
@@ -321,7 +409,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '24',
@@ -335,7 +427,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '25',
@@ -349,7 +445,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '26',
@@ -363,7 +463,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '27',
@@ -377,7 +481,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '28',
@@ -391,7 +499,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '29',
@@ -405,7 +517,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '30',
@@ -419,7 +535,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '31',
@@ -433,7 +553,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '32',
@@ -447,7 +571,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '33',
@@ -461,7 +589,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '34',
@@ -475,7 +607,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '35',
@@ -489,7 +625,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '36',
@@ -503,7 +643,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '37',
@@ -517,7 +661,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '38',
@@ -531,7 +679,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '39',
@@ -545,7 +697,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '40',
@@ -559,7 +715,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '41',
@@ -573,7 +733,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '42',
@@ -587,7 +751,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '43',
@@ -601,7 +769,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '44',
@@ -615,7 +787,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '45',
@@ -629,7 +805,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '46',
@@ -643,7 +823,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '47',
@@ -657,7 +841,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '48',
@@ -671,7 +859,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '49',
@@ -685,7 +877,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '50',
@@ -699,7 +895,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '51',
@@ -713,7 +913,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '52',
@@ -727,7 +931,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '53',
@@ -741,7 +949,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '54',
@@ -755,7 +967,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '55',
@@ -769,7 +985,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '56',
@@ -783,7 +1003,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '57',
@@ -797,7 +1021,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '58',
@@ -811,7 +1039,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '59',
@@ -825,7 +1057,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '60',
@@ -839,7 +1075,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '61',
@@ -853,7 +1093,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '62',
@@ -867,7 +1111,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '63',
@@ -881,7 +1129,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '64',
@@ -895,7 +1147,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '65',
@@ -909,7 +1165,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '66',
@@ -923,7 +1183,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '67',
@@ -937,7 +1201,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '68',
@@ -951,7 +1219,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '69',
@@ -965,7 +1237,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '70',
@@ -979,7 +1255,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '71',
@@ -993,7 +1273,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '72',
@@ -1007,7 +1291,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '73',
@@ -1021,7 +1309,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '74',
@@ -1035,7 +1327,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '75',
@@ -1049,7 +1345,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '76',
@@ -1063,7 +1363,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '77',
@@ -1077,7 +1381,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '78',
@@ -1091,7 +1399,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '79',
@@ -1105,7 +1417,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '80',
@@ -1119,7 +1435,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '81',
@@ -1133,7 +1453,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '82',
@@ -1147,7 +1471,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '83',
@@ -1161,7 +1489,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '84',
@@ -1175,7 +1507,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '85',
@@ -1189,7 +1525,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '86',
@@ -1203,7 +1543,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '87',
@@ -1217,7 +1561,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '88',
@@ -1231,7 +1579,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '89',
@@ -1245,7 +1597,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '90',
@@ -1259,7 +1615,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '91',
@@ -1273,7 +1633,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '92',
@@ -1287,7 +1651,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '93',
@@ -1301,7 +1669,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '94',
@@ -1315,7 +1687,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '95',
@@ -1329,7 +1705,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '96',
@@ -1343,7 +1723,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '97',
@@ -1357,7 +1741,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '98',
@@ -1371,7 +1759,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: false,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   },
   {
     id: '99',
@@ -1385,7 +1777,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: false
   },
   {
     id: '100',
@@ -1399,7 +1795,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 384,
     version: 3,
     isActive: true,
-    source: "Vault"
+    source: "Vault",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '101',
@@ -1413,7 +1813,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '102',
@@ -1427,7 +1831,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: false,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: true,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '103',
@@ -1441,7 +1849,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "Venafi"
+    source: "Venafi",
+    is_google_chrome: false,
+    is_microsoft: true,
+    is_mozilla: false,
+    is_apple: true
   },
   {
     id: '104',
@@ -1455,7 +1867,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 2048,
     version: 3,
     isActive: true,
-    source: "CCADB"
+    source: "CCADB",
+    is_google_chrome: true,
+    is_microsoft: true,
+    is_mozilla: true,
+    is_apple: false
   },
   {
     id: '105',
@@ -1469,7 +1885,11 @@ export const mockCertificates: Certificate[] = [
     keySize: 4096,
     version: 3,
     isActive: true,
-    source: "AWS RDS"
+    source: "AWS RDS",
+    is_google_chrome: false,
+    is_microsoft: false,
+    is_mozilla: true,
+    is_apple: true
   }
 ];
 
@@ -1483,6 +1903,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 1,
     description: 'Monthly truststore update - Added new CAs, removed expired certificates',
+    changeStatus: 'YES',
   },
   {
     id: '2',
@@ -1493,6 +1914,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 2,
     description: 'Security update - Added new regional CAs, deprecated old algorithms',
+    changeStatus: 'YES',
   },
   {
     id: '3',
@@ -1503,6 +1925,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Emergency update - Revoked compromised certificate',
+    changeStatus: 'YES',
   },
   {
     id: '4',
@@ -1513,6 +1936,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 2,
     description: 'Q4 update: Added several new root CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '5',
@@ -1523,6 +1947,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Deprecating SHA-1 certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '6',
@@ -1533,6 +1958,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 0,
     description: 'Added new government-trusted CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '7',
@@ -1543,6 +1969,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 2,
     description: 'Removed expired intermediate certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '8',
@@ -1553,6 +1980,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'Q2 alignment with browser trust stores.',
+    changeStatus: 'YES',
   },
   {
     id: '9',
@@ -1563,6 +1991,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 0,
     description: 'Added new EV CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '10',
@@ -1573,6 +2002,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 2,
     description: 'Removed CAs with compliance issues.',
+    changeStatus: 'YES',
   },
   {
     id: '11',
@@ -1583,6 +2013,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 3,
     description: 'Q1 2023 full trust store synchronization.',
+    changeStatus: 'YES',
   },
   {
     id: '12',
@@ -1593,6 +2024,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 2,
     description: 'Emergency revocation of two certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '13',
@@ -1603,6 +2035,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Annual review and cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '14',
@@ -1613,6 +2046,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 4,
     description: 'End of year reconciliation.',
+    changeStatus: 'YES',
   },
   {
     id: '15',
@@ -1623,6 +2057,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 1,
     description: 'Added support for new TLDs.',
+    changeStatus: 'YES',
   },
   {
     id: '16',
@@ -1633,6 +2068,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 5,
     description: 'Removed several distrusted CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '17',
@@ -1643,6 +2079,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 0,
     description: 'Q3 update.',
+    changeStatus: 'YES',
   },
   {
     id: '18',
@@ -1653,6 +2090,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 3,
     description: 'Minor certificate updates.',
+    changeStatus: 'YES',
   },
   {
     id: '19',
@@ -1663,6 +2101,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 0,
     deletedCount: 1,
     description: 'Revoked a single compromised certificate.',
+    changeStatus: 'YES',
   },
   {
     id: '20',
@@ -1673,6 +2112,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 4,
     description: 'Mid-year review and major update.',
+    changeStatus: 'YES',
   },
   {
     id: '21',
@@ -1683,6 +2123,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Updated CAs for IoT devices.',
+    changeStatus: 'YES',
   },
   {
     id: '22',
@@ -1693,6 +2134,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 3,
     description: 'Expired certificate removal.',
+    changeStatus: 'YES',
   },
   {
     id: '23',
@@ -1703,6 +2145,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 0,
     description: 'Q1 2022 update, adding new providers.',
+    changeStatus: 'YES',
   },
   {
     id: '24',
@@ -1713,6 +2156,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Routine maintenance.',
+    changeStatus: 'YES',
   },
   {
     id: '25',
@@ -1723,6 +2167,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 4,
     description: 'Initial 2022 cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '26',
@@ -1733,6 +2178,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 4,
     description: 'End of year 2021 updates.',
+    changeStatus: 'YES',
   },
   {
     id: '27',
@@ -1743,6 +2189,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 3,
     description: 'Removed obsolete CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '28',
@@ -1753,6 +2200,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 0,
     description: 'Added new national CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '29',
@@ -1763,6 +2211,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Q3 2021 maintenance.',
+    changeStatus: 'YES',
   },
   {
     id: '30',
@@ -1773,6 +2222,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 3,
     description: 'Expired certificate sweep.',
+    changeStatus: 'YES',
   },
   {
     id: '31',
@@ -1783,6 +2233,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 3,
     description: 'Browser compatibility update.',
+    changeStatus: 'YES',
   },
   {
     id: '32',
@@ -1793,6 +2244,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Emergency patch.',
+    changeStatus: 'YES',
   },
   {
     id: '33',
@@ -1803,6 +2255,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 2,
     description: 'Added new code signing CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '34',
@@ -1813,6 +2266,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 2,
     description: 'Q2 2021 updates.',
+    changeStatus: 'YES',
   },
   {
     id: '35',
@@ -1823,6 +2277,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 0,
     deletedCount: 3,
     description: 'Removed several non-compliant CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '36',
@@ -1833,6 +2288,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 0,
     description: 'Added new partner CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '37',
@@ -1843,6 +2299,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 3,
     description: 'Major annual trust store overhaul.',
+    changeStatus: 'YES',
   },
   {
     id: '38',
@@ -1853,6 +2310,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'Year-end 2020 certificate cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '39',
@@ -1863,6 +2321,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Routine certificate rotation.',
+    changeStatus: 'YES',
   },
   {
     id: '40',
@@ -1873,6 +2332,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Updated a single CA policy.',
+    changeStatus: 'YES',
   },
   {
     id: '41',
@@ -1883,6 +2343,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 3,
     description: 'Q3 2020 sync.',
+    changeStatus: 'YES',
   },
   {
     id: '42',
@@ -1893,6 +2354,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 0,
     description: 'Added CAs for new services.',
+    changeStatus: 'YES',
   },
   {
     id: '43',
@@ -1903,6 +2365,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 4,
     description: 'Removed several expired root certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '44',
@@ -1913,6 +2376,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 9,
     deletedCount: 4,
     description: 'Mid-2020 major update.',
+    changeStatus: 'YES',
   },
   {
     id: '45',
@@ -1923,6 +2387,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Security patch and certificate update.',
+    changeStatus: 'YES',
   },
   {
     id: '46',
@@ -1933,6 +2398,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 3,
     description: 'Q2 2020 cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '47',
@@ -1943,6 +2409,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 2,
     description: 'Added certificates for new infrastructure.',
+    changeStatus: 'YES',
   },
   {
     id: '48',
@@ -1953,6 +2420,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 0,
     deletedCount: 1,
     description: 'Distrusted a CA due to security incident.',
+    changeStatus: 'YES',
   },
   {
     id: '49',
@@ -1963,6 +2431,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 4,
     description: 'Start of 2020 review.',
+    changeStatus: 'YES',
   },
   {
     id: '50',
@@ -1973,6 +2442,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 4,
     description: 'End of year 2019 sync.',
+    changeStatus: 'YES',
   },
   {
     id: '51',
@@ -1983,6 +2453,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 3,
     description: 'Removed old 1024-bit root certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '52',
@@ -1993,6 +2464,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 0,
     description: 'Added new regional CAs for Asia.',
+    changeStatus: 'YES',
   },
   {
     id: '53',
@@ -2003,6 +2475,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 3,
     description: 'Q3 2019 maintenance.',
+    changeStatus: 'YES',
   },
   {
     id: '54',
@@ -2013,6 +2486,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 3,
     description: 'Expired certs removal.',
+    changeStatus: 'YES',
   },
   {
     id: '55',
@@ -2023,6 +2497,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 2,
     description: 'Added support for new encryption standards.',
+    changeStatus: 'YES',
   },
   {
     id: '56',
@@ -2033,6 +2508,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 10,
     deletedCount: 5,
     description: 'Major mid-year 2019 update.',
+    changeStatus: 'YES',
   },
   {
     id: '57',
@@ -2043,6 +2519,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Regular maintenance cycle.',
+    changeStatus: 'YES',
   },
   {
     id: '58',
@@ -2053,6 +2530,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 1,
     description: 'Q2 2019 minor update.',
+    changeStatus: 'YES',
   },
   {
     id: '59',
@@ -2063,6 +2541,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'Q1 2019 sync with major browsers.',
+    changeStatus: 'YES',
   },
   {
     id: '60',
@@ -2073,6 +2552,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Revocation of a mis-issued certificate.',
+    changeStatus: 'YES',
   },
   {
     id: '61',
@@ -2083,6 +2563,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 1,
     description: 'Initial 2019 certificate import.',
+    changeStatus: 'YES',
   },
   {
     id: '62',
@@ -2093,6 +2574,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 3,
     description: 'End of year 2018 cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '63',
@@ -2103,6 +2585,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Removed non-compliant certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '64',
@@ -2113,6 +2596,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 0,
     description: 'Added new CAs for document signing.',
+    changeStatus: 'YES',
   },
   {
     id: '65',
@@ -2123,6 +2607,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 3,
     description: 'Q3 2018 regular update.',
+    changeStatus: 'YES',
   },
   {
     id: '66',
@@ -2133,6 +2618,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 2,
     description: 'Minor expired certificate cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '67',
@@ -2143,6 +2629,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'Sync with mobile OS trust stores.',
+    changeStatus: 'YES',
   },
   {
     id: '68',
@@ -2153,6 +2640,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 10,
     deletedCount: 4,
     description: 'Mid-2018 major certificate update.',
+    changeStatus: 'YES',
   },
   {
     id: '69',
@@ -2163,6 +2651,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Routine maintenance and patch.',
+    changeStatus: 'YES',
   },
   {
     id: '70',
@@ -2173,6 +2662,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 3,
     description: 'Q2 2018 update.',
+    changeStatus: 'YES',
   },
   {
     id: '71',
@@ -2183,6 +2673,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 7,
     deletedCount: 2,
     description: 'Added new CAs for emerging markets.',
+    changeStatus: 'YES',
   },
   {
     id: '72',
@@ -2193,6 +2684,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Replaced an expiring intermediate CA.',
+    changeStatus: 'YES',
   },
   {
     id: '73',
@@ -2203,6 +2695,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 3,
     description: 'Start of 2018 full review.',
+    changeStatus: 'YES',
   },
   {
     id: '74',
@@ -2213,6 +2706,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 2,
     description: 'End of year 2017 updates.',
+    changeStatus: 'YES',
   },
   {
     id: '75',
@@ -2223,6 +2717,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 3,
     description: 'Removed several Symantec CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '76',
@@ -2233,6 +2728,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Q4 2017 update.',
+    changeStatus: 'YES',
   },
   {
     id: '77',
@@ -2243,6 +2739,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 0,
     description: 'Added new EV code signing CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '78',
@@ -2253,6 +2750,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 3,
     description: 'Routine certificate expiry check.',
+    changeStatus: 'YES',
   },
   {
     id: '79',
@@ -2263,6 +2761,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 2,
     description: 'Major update for browser compatibility.',
+    changeStatus: 'YES',
   },
   {
     id: '80',
@@ -2273,6 +2772,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 0,
     description: 'Added a new partner root certificate.',
+    changeStatus: 'YES',
   },
   {
     id: '81',
@@ -2283,6 +2783,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 3,
     description: 'Maintenance and cleanup.',
+    changeStatus: 'YES',
   },
   {
     id: '82',
@@ -2293,6 +2794,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 2,
     description: 'Q2 2017 sync.',
+    changeStatus: 'YES',
   },
   {
     id: '83',
@@ -2303,6 +2805,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 3,
     description: 'Removed CAs failing audits.',
+    changeStatus: 'YES',
   },
   {
     id: '84',
@@ -2313,6 +2816,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 1,
     description: 'Minor additions and removals.',
+    changeStatus: 'YES',
   },
   {
     id: '85',
@@ -2323,6 +2827,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 9,
     deletedCount: 3,
     description: 'Beginning of 2017 trust store update.',
+    changeStatus: 'YES',
   },
   {
     id: '86',
@@ -2333,6 +2838,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'End of year 2016 reconciliation.',
+    changeStatus: 'YES',
   },
   {
     id: '87',
@@ -2343,6 +2849,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 2,
     description: 'Regular update.',
+    changeStatus: 'YES',
   },
   {
     id: '88',
@@ -2353,6 +2860,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 1,
     description: 'Emergency revocation.',
+    changeStatus: 'YES',
   },
   {
     id: '89',
@@ -2363,6 +2871,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 3,
     description: 'Q3 2016 update.',
+    changeStatus: 'YES',
   },
   {
     id: '90',
@@ -2373,6 +2882,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 0,
     description: 'Added new trusted roots.',
+    changeStatus: 'YES',
   },
   {
     id: '91',
@@ -2383,6 +2893,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 4,
     description: 'Cleanup of expired certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '92',
@@ -2393,6 +2904,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 8,
     deletedCount: 3,
     description: 'Mid-2016 review.',
+    changeStatus: 'YES',
   },
   {
     id: '93',
@@ -2403,6 +2915,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 2,
     description: 'Minor maintenance.',
+    changeStatus: 'YES',
   },
   {
     id: '94',
@@ -2413,6 +2926,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 3,
     description: 'Q2 2016 updates.',
+    changeStatus: 'YES',
   },
   {
     id: '95',
@@ -2423,6 +2937,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 3,
     deletedCount: 2,
     description: 'Security patch and update.',
+    changeStatus: 'YES',
   },
   {
     id: '96',
@@ -2433,6 +2948,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 0,
     description: 'Added new CAs.',
+    changeStatus: 'YES',
   },
   {
     id: '97',
@@ -2443,6 +2959,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 10,
     deletedCount: 5,
     description: 'Baseline 2016 trust store import.',
+    changeStatus: 'YES',
   },
   {
     id: '98',
@@ -2453,6 +2970,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 6,
     deletedCount: 3,
     description: 'End of year 2015 cleanup and sync.',
+    changeStatus: 'YES',
   },
   {
     id: '99',
@@ -2463,6 +2981,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 1,
     deletedCount: 3,
     description: 'Removal of old certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '100',
@@ -2473,6 +2992,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 4,
     deletedCount: 2,
     description: 'Q4 2015 update.',
+    changeStatus: 'YES',
   },
   {
     id: '101',
@@ -2483,6 +3003,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 2,
     deletedCount: 1,
     description: 'Minor maintenance release.',
+    changeStatus: 'YES',
   },
   {
     id: '102',
@@ -2493,6 +3014,7 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 5,
     deletedCount: 2,
     description: 'Added new partner certificates.',
+    changeStatus: 'YES',
   },
   {
     id: '103',
@@ -2503,6 +3025,557 @@ export const mockTrackingInstances: TrackingInstance[] = [
     addedCount: 15,
     deletedCount: 5,
     description: 'Initial massive import of certificate data.',
+    changeStatus: 'YES',
+  },
+  {
+    id: '104',
+    trackingId: 'TRK-2015-007',
+    version: -88,
+    timestamp: '2015-07-23T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '105',
+    trackingId: 'TRK-2015-008',
+    version: -89,
+    timestamp: '2015-07-22T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '106',
+    trackingId: 'TRK-2015-009',
+    version: -90,
+    timestamp: '2015-07-21T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '107',
+    trackingId: 'TRK-2015-010',
+    version: -91,
+    timestamp: '2015-07-20T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '108',
+    trackingId: 'TRK-2015-011',
+    version: -92,
+    timestamp: '2015-07-19T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '109',
+    trackingId: 'TRK-2015-012',
+    version: -93,
+    timestamp: '2015-07-18T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '110',
+    trackingId: 'TRK-2015-013',
+    version: -94,
+    timestamp: '2015-07-17T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '111',
+    trackingId: 'TRK-2015-014',
+    version: -95,
+    timestamp: '2015-07-16T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '112',
+    trackingId: 'TRK-2015-015',
+    version: -96,
+    timestamp: '2015-07-15T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '113',
+    trackingId: 'TRK-2015-016',
+    version: -97,
+    timestamp: '2015-07-14T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '114',
+    trackingId: 'TRK-2015-017',
+    version: -98,
+    timestamp: '2015-07-13T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '115',
+    trackingId: 'TRK-2015-018',
+    version: -99,
+    timestamp: '2015-07-12T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '116',
+    trackingId: 'TRK-2015-019',
+    version: -100,
+    timestamp: '2015-07-11T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '117',
+    trackingId: 'TRK-2015-020',
+    version: -101,
+    timestamp: '2015-07-10T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '118',
+    trackingId: 'TRK-2015-021',
+    version: -102,
+    timestamp: '2015-07-09T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '119',
+    trackingId: 'TRK-2015-022',
+    version: -103,
+    timestamp: '2015-07-08T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '120',
+    trackingId: 'TRK-2015-023',
+    version: -104,
+    timestamp: '2015-07-07T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '121',
+    trackingId: 'TRK-2015-024',
+    version: -105,
+    timestamp: '2015-07-06T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '122',
+    trackingId: 'TRK-2015-025',
+    version: -106,
+    timestamp: '2015-07-05T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '123',
+    trackingId: 'TRK-2015-026',
+    version: -107,
+    timestamp: '2015-07-04T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '124',
+    trackingId: 'TRK-2015-027',
+    version: -108,
+    timestamp: '2015-07-03T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '125',
+    trackingId: 'TRK-2015-028',
+    version: -109,
+    timestamp: '2015-07-02T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '126',
+    trackingId: 'TRK-2015-029',
+    version: -110,
+    timestamp: '2015-07-01T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '127',
+    trackingId: 'TRK-2015-030',
+    version: -111,
+    timestamp: '2015-06-30T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '128',
+    trackingId: 'TRK-2015-031',
+    version: -112,
+    timestamp: '2015-06-29T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '129',
+    trackingId: 'TRK-2015-032',
+    version: -113,
+    timestamp: '2015-06-28T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '130',
+    trackingId: 'TRK-2015-033',
+    version: -114,
+    timestamp: '2015-06-27T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '131',
+    trackingId: 'TRK-2015-034',
+    version: -115,
+    timestamp: '2015-06-26T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '132',
+    trackingId: 'TRK-2015-035',
+    version: -116,
+    timestamp: '2015-06-25T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '133',
+    trackingId: 'TRK-2015-036',
+    version: -117,
+    timestamp: '2015-06-24T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '134',
+    trackingId: 'TRK-2015-037',
+    version: -118,
+    timestamp: '2015-06-23T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '135',
+    trackingId: 'TRK-2015-038',
+    version: -119,
+    timestamp: '2015-06-22T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '136',
+    trackingId: 'TRK-2015-039',
+    version: -120,
+    timestamp: '2015-06-21T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '137',
+    trackingId: 'TRK-2015-040',
+    version: -121,
+    timestamp: '2015-06-20T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '138',
+    trackingId: 'TRK-2015-041',
+    version: -122,
+    timestamp: '2015-06-19T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '139',
+    trackingId: 'TRK-2015-042',
+    version: -123,
+    timestamp: '2015-06-18T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '140',
+    trackingId: 'TRK-2015-043',
+    version: -124,
+    timestamp: '2015-06-17T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '141',
+    trackingId: 'TRK-2015-044',
+    version: -125,
+    timestamp: '2015-06-16T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '142',
+    trackingId: 'TRK-2015-045',
+    version: -126,
+    timestamp: '2015-06-15T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '143',
+    trackingId: 'TRK-2015-046',
+    version: -127,
+    timestamp: '2015-06-14T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '144',
+    trackingId: 'TRK-2015-047',
+    version: -128,
+    timestamp: '2015-06-13T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '145',
+    trackingId: 'TRK-2015-048',
+    version: -129,
+    timestamp: '2015-06-12T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '146',
+    trackingId: 'TRK-2015-049',
+    version: -130,
+    timestamp: '2015-06-11T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '147',
+    trackingId: 'TRK-2015-050',
+    version: -131,
+    timestamp: '2015-06-10T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '148',
+    trackingId: 'TRK-2015-051',
+    version: -132,
+    timestamp: '2015-06-09T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '149',
+    trackingId: 'TRK-2015-052',
+    version: -133,
+    timestamp: '2015-06-08T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '150',
+    trackingId: 'TRK-2015-053',
+    version: -134,
+    timestamp: '2015-06-07T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '151',
+    trackingId: 'TRK-2015-054',
+    version: -135,
+    timestamp: '2015-06-06T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '152',
+    trackingId: 'TRK-2015-055',
+    version: -136,
+    timestamp: '2015-06-05T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
+  },
+  {
+    id: '153',
+    trackingId: 'TRK-2015-056',
+    version: -137,
+    timestamp: '2015-06-04T10:00:00Z',
+    changesCount: 0,
+    addedCount: 0,
+    deletedCount: 0,
+    description: 'Scheduled system check. No changes detected.',
+    changeStatus: 'NO',
   }
 ];
 

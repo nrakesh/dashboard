@@ -11,6 +11,10 @@ export interface Certificate {
   version: number;
   isActive: boolean;
   source: string;
+  is_google_chrome: boolean,
+  is_microsoft: boolean,
+  is_mozilla: boolean,
+  is_apple: boolean
 }
 
 export interface TrackingInstance {
@@ -22,6 +26,8 @@ export interface TrackingInstance {
   addedCount: number;
   deletedCount: number;
   description: string;
+  changeStatus: 'YES' | 'NO';
+
 }
 
 export interface CertificateChange {

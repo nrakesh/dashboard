@@ -10,7 +10,7 @@ import {
   getFilteredRowModel,
   ColumnDef,
   SortingState,
-  Updater, getPaginationRowModel,
+  Updater, getPaginationRowModel, ColumnFiltersState,
 } from '@tanstack/angular-table';
 import { TRUSTSTORE_SERVICE_TOKEN } from '../../../../shared/services/service-factory';
 import { TruststoreServiceInterface } from '../../../../shared/services/trustsore-service-interface';
@@ -39,6 +39,7 @@ export class TrackingTableComponent {
 
   // Define the structure of  table
   columns: ColumnDef<TrackingInstance>[] = [
+    { accessorKey: 'changeStatus', header: 'Change Status'},
     { accessorKey: 'trackingId', header: 'Tracking ID' },
     { accessorKey: 'version', header: 'Version' },
     { accessorKey: 'timestamp', header: 'Date' },
@@ -49,6 +50,8 @@ export class TrackingTableComponent {
   // Signals to manage the table's state
   sorting = signal<SortingState>([]);
   globalFilter = signal<string>('');
+  columnFilters = signal<ColumnFiltersState>([{ id: 'changeStatus', value: 'YES' }]);
+
 
   // The table instance
   table = createAngularTable(() => ({
@@ -58,9 +61,13 @@ export class TrackingTableComponent {
     state: {
       sorting: this.sorting(),
       globalFilter: this.globalFilter(),
+      columnFilters: this.columnFilters(),
     },
     onSortingChange: (updater: Updater<SortingState>) => {
       this.sorting.set(typeof updater === 'function' ? updater(this.sorting()) : updater);
+    },
+    onColumnFiltersChange: (updater: Updater<ColumnFiltersState>) => {
+      this.columnFilters.set(typeof updater === 'function' ? updater(this.columnFilters()) : updater);
     },
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -68,6 +75,16 @@ export class TrackingTableComponent {
     getPaginationRowModel: getPaginationRowModel(),
 
   }));
+
+  onGlobalFilterChange(value: string) {
+    this.globalFilter.set(value);
+  }
+
+  onStatusFilterChange(value: string) {
+    // A value of 'all' or an empty string should clear the filter.
+    const filterValue = value && value !== 'all' ? value : '';
+    this.table.getColumn('changeStatus')?.setFilterValue(filterValue);
+  }
 
   // Method to handle row click and emit the event
   onRowClick(instance: TrackingInstance): void {

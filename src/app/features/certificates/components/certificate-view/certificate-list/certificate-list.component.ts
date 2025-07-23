@@ -71,7 +71,6 @@ export class CertificateListComponent {
     this.globalFilter.set(value);
   }
 
-  // FIX: This method is now simpler and uses the table's built-in function.
   onSourceFilterChange(value: string) {
     // A value of 'all' or an empty string should clear the filter.
     const filterValue = value && value !== 'all' ? value : '';

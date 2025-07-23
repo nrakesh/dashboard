@@ -16,6 +16,7 @@ import {
   Package,Lock,Plus,Minus,
   ShieldCheck,DatabaseIcon, KeyRound,Vault,ShieldQuestion,
   ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,ChevronUp, ChevronDown,
+  CheckCircle2, XCircle,Equal,CircleEqual,LucideEqualNot
 } from 'lucide-angular';
 
 
@@ -35,6 +36,8 @@ const appIcons = {
   Package,Lock,Plus,Minus,
   ShieldCheck,  DatabaseIcon, KeyRound,Vault,ShieldQuestion,
   ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,ChevronUp, ChevronDown,
+  CheckCircle2, XCircle,Equal,CircleEqual,LucideEqualNot
+
 };
 
 export const appConfig: ApplicationConfig = {
