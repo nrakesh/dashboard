@@ -2,27 +2,26 @@
   <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
       <h2 class="text-lg font-semibold text-gray-900">Certificates</h2>
-
       <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
         <div class="relative">
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <lucide-icon name="search" class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400"></lucide-icon>
           <input
             type="text"
-            placeholder="Search certificates..."
-            [(ngModel)]="searchTerm"
-            (ngModelChange)="resetPage()"
+            [value]="globalFilter()"
+            (input)="onGlobalFilterChange($any($event.target).value)"
+            placeholder="Search all columns..."
             class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
-
         <select
-          [(ngModel)]="filterSource"
-          (ngModelChange)="resetPage()"
+          (change)="onSourceFilterChange($any($event.target).value)"
           class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-          @for (source of sources; track source) {
-            <option [value]="source">{{ source === 'all' ? 'All Sources' : source }}</option>
-          }
+          <option value="all">All Sources</option>
+          <option value="CCADB">CCADB</option>
+          <option value="AWS RDS">AWS RDS</option>
+          <option value="Venafi">Venafi</option>
+          <option value="Vault">Vault</option>
         </select>
       </div>
     </div>
@@ -31,86 +30,69 @@
   <div class="overflow-x-auto">
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
-      <tr>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('source')">
-          <div class="flex items-center space-x-1">
-            <span>Source</span>
-            @if (sortField === 'source') {
-              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
+        @for (headerGroup of table.getHeaderGroups(); track headerGroup.id) {
+          <tr>
+            @for (header of headerGroup.headers; track header.id) {
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div [class.cursor-pointer]="header.column.getCanSort()" (click)="header.column.getToggleSortingHandler()?.($event)" class="flex items-center space-x-1 select-none">
+                  {{ header.column.columnDef.header }}
+                  @if (header.column.getIsSorted() === 'asc') {
+                    <lucide-icon name="chevron-up" class="h-4 w-4"></lucide-icon>
+                  }
+                  @if (header.column.getIsSorted() === 'desc') {
+                    <lucide-icon name="chevron-down" class="h-4 w-4"></lucide-icon>
+                  }
+                </div>
+              </th>
             }
-          </div>
-        </th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('commonName')">
-          <div class="flex items-center space-x-1">
-            <span>Common Name</span>
-            @if (sortField === 'commonName') {
-              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
-            }
-          </div>
-        </th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('issuer')">
-          <div class="flex items-center space-x-1">
-            <span>Issuer</span>
-            @if (sortField === 'issuer') {
-              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
-            }
-          </div>
-        </th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('notAfter')">
-          <div class="flex items-center space-x-1">
-            <span>Expires</span>
-            @if (sortField === 'notAfter') {
-              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
-            }
-          </div>
-        </th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" (click)="handleSort('algorithm')">
-          <div class="flex items-center space-x-1">
-            <span>Algorithm</span>
-            @if (sortField === 'algorithm') {
-              <lucide-icon [name]="sortDirection === 'asc' ? 'chevron-up' : 'chevron-down'" class="h-4 w-4"></lucide-icon>
-            }
-          </div>
-        </th>
-      </tr>
+          </tr>
+        }
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
-        @for (certificate of paginatedCertificates; track certificate.id) {
-          <tr (click)="certificateClick.emit(certificate)" class="hover:bg-gray-50 cursor-pointer transition-colors">
-            <td class="px-6 py-4 whitespace-nowrap">
-              <div class="flex items-center space-x-3">
-                <lucide-icon [name]="getSourceInfo(certificate.source).icon" class="h-5 w-5" [ngClass]="getSourceInfo(certificate.source).colorClass"></lucide-icon>
-                <span class="text-sm text-gray-800">{{ getSourceInfo(certificate.source).name }}</span>
-              </div>
-            </td>
-            <td class="px-6 py-4">
-              <div class="text-sm font-medium text-gray-900 truncate max-w-xs">{{ certificate.commonName }}</div>
-            </td>
-            <td class="px-6 py-4">
-              <div class="text-sm text-gray-600 truncate max-w-xs">{{ certificate.issuer }}</div>
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap">
-              <div [class.text-yellow-600]="isExpiringSoon(certificate.notAfter)" [class.font-medium]="isExpiringSoon(certificate.notAfter)" [class.text-gray-600]="!isExpiringSoon(certificate.notAfter)" class="text-sm flex items-center">
-                {{ certificate.notAfter | date: 'shortDate' }}
-                @if (isExpiringSoon(certificate.notAfter)) {
-                  <lucide-icon name="alert-triangle" class="h-4 w-4 text-yellow-500 ml-2"></lucide-icon>
+        @for (row of table.getRowModel().rows; track row.id) {
+          <tr (click)="certificateClick.emit(row.original)" class="hover:bg-gray-50 cursor-pointer transition-colors">
+            @for (cell of row.getVisibleCells(); track cell.id) {
+              <td class="px-6 py-4 whitespace-nowrap">
+                @switch (cell.column.id) {
+                  @case ('source') {
+                    <div class="flex items-center space-x-3">
+                      @switch (cell.getValue()) {
+                        @case ('CCADB') { <lucide-icon name="shield-check" class="h-5 w-5 text-blue-600"></lucide-icon> }
+                        @case ('AWS RDS') { <lucide-icon name="database" class="h-5 w-5 text-orange-500"></lucide-icon> }
+                        @case ('Venafi') { <lucide-icon name="key-round" class="h-5 w-5 text-purple-600"></lucide-icon> }
+                        @case ('Vault') { <lucide-icon name="vault" class="h-5 w-5 text-indigo-700"></lucide-icon> }
+                        @default { <lucide-icon name="shield-question" class="h-5 w-5 text-gray-400"></lucide-icon> }
+                      }
+                      <span class="text-sm font-medium text-gray-900">{{ cell.getValue() }}</span>
+                    </div>
+                  }
+                  @case ('notAfter') {
+                    <div class="text-sm" [class.text-yellow-600]="isExpiringSoon($any(cell.getValue()))">
+                      {{ $any(cell.getValue()) | date: 'shortDate' }}
+                      @if (isExpiringSoon($any(cell.getValue()))) {
+                        <lucide-icon name="alert-triangle" class="h-4 w-4 text-yellow-500 ml-2 inline-block"></lucide-icon>
+                      }
+                    </div>
+                  }
+                  @case ('algorithm') {
+                    <span class="inline-flex px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
+                      {{ cell.getValue() }}
+                    </span>
+                  }
+                  @default {
+                    <div class="text-sm text-gray-900 truncate max-w-xs">
+                      {{ cell.getValue() }}
+                    </div>
+                  }
                 }
-              </div>
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap">
-            <span class="inline-flex px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
-              {{ certificate.algorithm }}
-            </span>
-            </td>
+              </td>
+            }
           </tr>
         } @empty {
           <tr>
-            <td colspan="5">
-              <div class="px-6 py-12 text-center">
-                <lucide-icon name="search-x" class="mx-auto h-12 w-12 text-gray-400"></lucide-icon>
-                <h3 class="mt-2 text-sm font-medium text-gray-900">No Certificates Found</h3>
-                <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter terms.</p>
-              </div>
+            <td [attr.colspan]="table.getAllColumns().length" class="text-center p-8">
+              <lucide-icon name="search-x" class="mx-auto h-12 w-12 text-gray-400"></lucide-icon>
+              <h3 class="mt-2 text-sm font-medium text-gray-900">No Certificates Found</h3>
             </td>
           </tr>
         }
@@ -118,29 +100,35 @@
     </table>
   </div>
 
-  @if (filteredAndSortedCertificates.length > pageSizeOptions[0]) {
+  @if (table.getPageCount() > 1) {
     <div class="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between">
       <div class="flex items-center space-x-2 text-sm">
-        <label for="pageSize" class="text-gray-600">Rows per page:</label>
-        <select id="pageSize" [ngModel]="pageSize" (change)="onPageSizeChange($event)" class="px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-          @for (size of pageSizeOptions; track size) {
-            <option [value]="size">{{ size }}</option>
+        <button (click)="table.setPageIndex(0)" [disabled]="!table.getCanPreviousPage()" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <lucide-icon name="ChevronFirst" class="h-4 w-4"></lucide-icon>
+        </button>
+        <button (click)="table.previousPage()" [disabled]="!table.getCanPreviousPage()" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <lucide-icon name="ChevronLeft" class="h-4 w-4"></lucide-icon>
+        </button>
+        <button (click)="table.nextPage()" [disabled]="!table.getCanNextPage()" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <lucide-icon name="ChevronRight" class="h-4 w-4"></lucide-icon>
+        </button>
+        <button (click)="table.setPageIndex(table.getPageCount() - 1)" [disabled]="!table.getCanNextPage()" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <lucide-icon name="ChevronLast" class="h-4 w-4"></lucide-icon>
+        </button>
+      </div>
+      <div class="flex items-center space-x-4">
+      <span class="text-sm text-gray-600">
+        Page {{ table.getState().pagination.pageIndex + 1 }} of {{ table.getPageCount() }}
+      </span>
+        <select
+          [value]="table.getState().pagination.pageSize"
+          (change)="table.setPageSize(Number($any($event.target).value))"
+          class="px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+          @for (pageSize of [10, 25, 50, 100]; track pageSize) {
+            <option [value]="pageSize">Show {{ pageSize }}</option>
           }
         </select>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <span class="text-sm text-gray-600">
-          Page {{ currentPage }} of {{ totalPages }}
-        </span>
-        <div class="flex items-center space-x-1">
-          <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
-            <lucide-icon name="chevron-left" class="h-4 w-4"></lucide-icon>
-          </button>
-          <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages" class="p-2 rounded-md hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
-            <lucide-icon name="chevron-right" class="h-4 w-4"></lucide-icon>
-          </button>
-        </div>
       </div>
     </div>
   }

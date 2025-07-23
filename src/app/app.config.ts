@@ -15,7 +15,7 @@ import {
   MoreVertical, HelpCircle, Settings, Users, Database,
   Package,Lock,Plus,Minus,
   ShieldCheck,DatabaseIcon, KeyRound,Vault,ShieldQuestion,
-  ChevronLeft, ChevronRight,
+  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,
 } from 'lucide-angular';
 
 
@@ -34,7 +34,7 @@ const appIcons = {
   MoreVertical, HelpCircle, Settings, Users, Database,
   Package,Lock,Plus,Minus,
   ShieldCheck,  DatabaseIcon, KeyRound,Vault,ShieldQuestion,
-  ChevronLeft, ChevronRight,
+  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,
 };
 
 export const appConfig: ApplicationConfig = {
