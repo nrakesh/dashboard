@@ -10,12 +10,12 @@ import {
   LucideAngularModule,
   Shield, BarChart3, History, Download, Menu, X,
   AlertTriangle, Activity,
-  Clock,Search, ChevronUp, ChevronDown,
+  Clock,Search,
   Calendar, Key, Hash, FileText,
   MoreVertical, HelpCircle, Settings, Users, Database,
   Package,Lock,Plus,Minus,
   ShieldCheck,DatabaseIcon, KeyRound,Vault,ShieldQuestion,
-  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,
+  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,ChevronUp, ChevronDown,
 } from 'lucide-angular';
 
 
@@ -29,12 +29,12 @@ import {httpErrorInterceptor} from './shared/interceptors/http-error.interceptor
 const appIcons = {
   Shield, BarChart3, History, Download, Menu, X,
   AlertTriangle, Activity,
-  Clock,Search, ChevronUp, ChevronDown,
+  Clock,Search,
   Calendar, Key, Hash, FileText,
   MoreVertical, HelpCircle, Settings, Users, Database,
   Package,Lock,Plus,Minus,
   ShieldCheck,  DatabaseIcon, KeyRound,Vault,ShieldQuestion,
-  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,
+  ChevronLeft, ChevronRight,ChevronFirst,ChevronLast,ChevronUp, ChevronDown,
 };
 
 export const appConfig: ApplicationConfig = {
