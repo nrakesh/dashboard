@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server/index.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -29,6 +29,7 @@
     "@angular/router": "^20.1.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@tanstack/angular-table": "^8.21.3",
+    "express": "^5.1.0",
     "lucide-angular": "^0.525.0",
     "ngx-logger": "^5.0.12",
     "postcss": "^8.5.6",
