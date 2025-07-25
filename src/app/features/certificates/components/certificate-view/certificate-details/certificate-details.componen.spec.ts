@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CertificateDetailsComponent } from './certificate-details.component';
 import { NGXLogger } from 'ngx-logger';
 import { Certificate } from '../../../../../shared/models/certificate.model';
-
+//https://dev.to/fransaoco/how-to-set-up-jest-in-angular-19-step-by-step-guide-1c2p
 // Create a mock for NGXLogger
 const mockLogger = {
   log: jest.fn(),
